@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 #nullable disable
 
-namespace Proyecto_Sena_2.Models
+namespace Proyecto_sena.Models
 {
     public partial class proyecto_innubeContext : DbContext
     {

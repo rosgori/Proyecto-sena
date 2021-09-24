@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace Proyecto_Sena_2
+namespace Proyecto_sena
 {
     public class Program
     {

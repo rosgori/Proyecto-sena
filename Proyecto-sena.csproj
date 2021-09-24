@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <UserSecretsId>aspnet-Proyecto_Sena_2-672F3797-D96F-42E7-B39D-0A3CD9AFA160</UserSecretsId>
-    <RootNamespace>Proyecto_Sena_2</RootNamespace>
+    <UserSecretsId>aspnet-Proyecto_sena-672F3797-D96F-42E7-B39D-0A3CD9AFA160</UserSecretsId>
+    <RootNamespace>Proyecto_sena</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

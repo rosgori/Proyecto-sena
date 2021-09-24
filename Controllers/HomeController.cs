@@ -5,9 +5,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Proyecto_Sena_2.Models;
+using Proyecto_sena.Models;
 
-namespace Proyecto_Sena_2.Controllers
+namespace Proyecto_sena.Controllers
 {
     public class HomeController : Controller
     {

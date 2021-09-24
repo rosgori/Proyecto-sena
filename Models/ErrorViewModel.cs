@@ -1,6 +1,6 @@
 using System;
 
-namespace Proyecto_Sena_2.Models
+namespace Proyecto_sena.Models
 {
     public class ErrorViewModel
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace Proyecto_Sena_2.Models
+namespace Proyecto_sena.Models
 {
     public partial class ServicioOfrecido
     {

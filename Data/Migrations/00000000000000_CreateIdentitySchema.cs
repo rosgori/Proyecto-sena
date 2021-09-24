@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Proyecto_Sena_2.Data.Migrations
+namespace Proyecto_sena.Data.Migrations
 {
     public partial class CreateIdentitySchema : Migration
     {

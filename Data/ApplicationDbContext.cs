@@ -4,7 +4,7 @@ using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace Proyecto_Sena_2.Data
+namespace Proyecto_sena.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {
