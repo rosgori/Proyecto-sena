@@ -12,6 +12,7 @@ using Proyecto_sena.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Proyecto_sena.Models;
 
 namespace Proyecto_sena
 {
@@ -29,7 +30,18 @@ namespace Proyecto_sena
         {
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlite(
-                    Configuration.GetConnectionString("DefaultConnection")));
+                     Configuration.GetConnectionString("DefaultConnection")));
+
+            // var connectionString = "server=localhost;database=proyecto_innube;user=rosgori;password=Malacontrasena44!;treattinyasboolean=true";
+            // var serverVersion = ServerVersion.AutoDetect(connectionString);
+
+            // services.AddDbContext<proyecto_innubeContext>(
+            // dbContextOptions => dbContextOptions
+            //     .UseMySql(connectionString, serverVersion)
+            //     .EnableSensitiveDataLogging() // <-- These two calls are optional but help
+            //     .EnableDetailedErrors());     // <-- with debugging (remove for production).
+
+
             services.AddDatabaseDeveloperPageExceptionFilter();
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)

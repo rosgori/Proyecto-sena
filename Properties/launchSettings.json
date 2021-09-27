@@ -15,7 +15,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "Proyecto_Sena_2": {
+    "Proyecto_sena": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,
