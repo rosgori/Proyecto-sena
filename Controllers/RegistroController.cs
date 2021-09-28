@@ -23,6 +23,16 @@ namespace Proyecto_sena.Controllers
             return View();
         }
 
+        public IActionResult RegCliente()
+        {
+            return View();
+        }
+
+        public IActionResult RegEmpresa()
+        {
+            return View();
+        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
