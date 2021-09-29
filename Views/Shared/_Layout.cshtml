@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Innube</title>
+    <script src="https://kit.fontawesome.com/30232a80d3.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
@@ -46,10 +47,10 @@
                 <a class="color2" asp-controller="Sesion" asp-action="Index">Iniciar sesion</a>
             </div>
             <div>
-
+                @* <a asp-controller="Home" asp-action="Index" style="a:hover{ text-decoration: none; color:white}"> *@
                 <img src="~/img/logo-trans-horizontal_1.png" width="20%"
                     alt="Haz clic aquí para volver a la página de inicio" />
-
+                @* </a> *@
                 <a asp-controller="Home" asp-action="Index">Inicio</a>
                 <a href="">Servicios en la nube</a>
                 <a href="">Funcionalidades</a>
