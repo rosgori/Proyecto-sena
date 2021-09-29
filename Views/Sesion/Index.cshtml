@@ -1,24 +1,43 @@
 @{
     ViewData["Title"] = "Inicio sesión";
     Layout = "/Views/Shared/_Layout.cshtml";
+    var error = TempData["Error"] as string;
 }
+
+<div>
+    @if (!string.IsNullOrEmpty(error))
+    {
+        <div class="text-danger"> @error </div>
+    }
+</div>
 
 
 <div class="bodyre">
     <div class="cajaRC">
         <img class="centrar" src="~/img/logo-trans-horizontal_1.png" alt="" width="160px" height="50px">
         <h3>Iniciar sesión</h3>
-        <div>
+        <form method="POST" asp-action="Ingresar">
+            <div>
 
-            <div><label for="">Correo</label> <input type="email" /></div>
+                <div>
+                    <label for="correo">Correo</label>
+                    <input type="email" id="correo" name="correo" required />
+                </div>
 
-            <div><label for="">Contraseña</label> <input type="password" /></div>
-            <h5>¿Olvidó su contraseña?</h5>
+                <div>
+                    <label for="contraseña">Contraseña</label>
+                    <input type="password" id="contraseña" name="contraseña" required />
+                </div>
 
-            <div class="aconfirmar"> <a class="" href="">Ingresar</a></div>
+                <h5>¿Olvidó su contraseña?</h5>
 
-            <h5>Si aún no tiene cuenta, regístrese</h5>
+                <div class="aconfirmar">
+                    <input type="submit" value="Ingresar">
+                </div>
 
-        </div>
+                <h5>Si aún no tiene cuenta, regístrese.</h5>
+
+            </div>
+        </form>
     </div>
 </div>

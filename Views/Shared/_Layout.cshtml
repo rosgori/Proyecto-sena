@@ -42,10 +42,21 @@
             </nav> *@
 
         <nav>
-            <div class="opciones">
-                <a class="color1" asp-controller="Registro" asp-action="Index">Registrarse</a>
-                <a class="color2" asp-controller="Sesion" asp-action="Index">Iniciar sesion</a>
-            </div>
+            @if (!User.Identity.IsAuthenticated)
+            {
+                <div class="opciones">
+                    <a class="color1" asp-controller="Registro" asp-action="Index">Registrarse</a>
+                    <a class="color2" asp-controller="Sesion" asp-action="Index">Iniciar sesión</a>
+                </div>
+            }
+
+            @if (User.Identity.IsAuthenticated)
+            {
+                <div class="opciones">
+                    <a class="color1"> Hola @User.Identity.Name</a>
+                    <a class="color2" asp-controller="Sesion" asp-action="SalirSesion">Cerrar sesión</a>
+                </div>
+            }
             <div>
                 @* <a asp-controller="Home" asp-action="Index" style="a:hover{ text-decoration: none; color:white}"> *@
                 <img src="~/img/logo-trans-horizontal_1.png" width="200"

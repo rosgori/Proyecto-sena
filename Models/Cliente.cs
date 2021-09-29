@@ -15,11 +15,11 @@ namespace Proyecto_sena.Models
 
         [EmailAddress]
         public string CorreoElectronicoCliente { get; set; }
-        public uint? IdContraseñaCliente { get; set; }
+        public uint IdContraseñaCliente { get; set; }
 
         public virtual ContraseñaCliente IdContraseñaClienteNavigation { get; set; }
 
-        public Cliente(string idCliente, string nombreCliente, string apellidoCliente, string correoElectronicoCliente, uint? idContraseñaCliente)
+        public Cliente(string idCliente, string nombreCliente, string apellidoCliente, string correoElectronicoCliente, uint idContraseñaCliente)
         {
             IdCliente = idCliente;
             NombreCliente = nombreCliente;

@@ -59,8 +59,8 @@ namespace Proyecto_sena.Controllers
             var base_datos = new proyecto_innubeContext();
 
             ContraseñaCliente pass = new ContraseñaCliente();
-            pass.ParteEncriptada = Convert.ToBase64String(bytes_contraseña);
-            pass.Salt = Convert.ToBase64String(bytes_salt);
+            pass.ParteEncriptada = Convert.ToBase64String(parte_encriptada);
+            pass.Salt = salt;
             base_datos.ContraseñaClientes.Add(pass);
             base_datos.SaveChanges();
 
