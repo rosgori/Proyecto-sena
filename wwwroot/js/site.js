@@ -2,3 +2,14 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your JavaScript code.
+
+function confirmacion_contraseña() {
+  var password = document.getElementsByName("contraseña").value;
+  var confirm = document.getElementsByName("confirmar_contraseña").value;
+
+  if (confirm != password) {
+    var field = document.getElementById("checkconfirm");
+    field.innerHTML = "No son iguales";
+    field.style.color = 'white';
+  }
+}
