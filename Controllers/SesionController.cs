@@ -37,7 +37,7 @@ namespace Proyecto_sena.Controllers
 
             Cliente persona = base_datos.Clientes.FirstOrDefault(c => c.CorreoElectronicoCliente == correo);
 
-            uint id_contraseña = persona.IdContraseñaCliente;
+            uint? id_contraseña = persona.IdContraseñaCliente;
 
             ContraseñaCliente contra = base_datos.ContraseñaClientes.Find(id_contraseña);
 

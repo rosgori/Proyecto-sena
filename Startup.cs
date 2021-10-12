@@ -34,7 +34,7 @@ namespace Proyecto_sena
             //     options.UseSqlite(
             //          Configuration.GetConnectionString("DefaultConnection")));
 
-            // var connectionString = "server=localhost;database=proyecto_innube;user=rosgori;password=Malacontrasena44!;treattinyasboolean=true";
+            // var connectionString = "server=localhost;database=proyecto_innube;user=rosgori;password=;treattinyasboolean=true";
             // var serverVersion = ServerVersion.AutoDetect(connectionString);
 
             // services.AddDbContext<proyecto_innubeContext>(

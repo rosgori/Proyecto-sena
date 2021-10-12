@@ -33,8 +33,7 @@ namespace Proyecto_sena.Models
         }
 
         public string CrearId()
-        {
-            
+        {            
             var id_nuevo = new StringBuilder();
             string inicio_exp = "CC";
             Random num_random = new Random();
