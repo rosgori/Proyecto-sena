@@ -4,10 +4,10 @@
 // Write your JavaScript code.
 
 function confirmacion_contraseña() {
-  var password = document.getElementsByName("contraseña").value;
-  var confirm = document.getElementsByName("confirmar_contraseña").value;
+  var password = document.getElementById("contraseña").value;
+  var confirm = document.getElementById("confirmar_contraseña").value;
 
-  if (confirm != password) {
+  if (confirm !== password) {
     var field = document.getElementById("checkconfirm");
     field.innerHTML = "No son iguales";
     field.style.color = 'white';

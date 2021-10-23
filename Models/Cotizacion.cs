@@ -17,6 +17,8 @@ namespace Proyecto_sena.Models
         public string IdClienteGeneral { get; set; }
         public uint Subtotal { get; set; }
 
+         public readonly double  iva=0.16;
+
         public virtual ClienteGeneral IdClienteGeneralNavigation { get; set; }
         public virtual ICollection<DemandaServicio> DemandaServicios { get; set; }
     }

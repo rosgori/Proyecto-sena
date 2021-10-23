@@ -9,12 +9,12 @@
     <div class="cajaRC">
         <img class="centrar" src="~/img/logo-trans-horizontal_1.png" alt="" width="160px" height="50px">
         <h3>Registro Cliente</h3>
-        <form method="POST" asp-action="Crear">
+        <form method="POST" asp-action="CrearCliente">
 
             <input type="hidden" id="IdCliente" name="IdCliente" />
             <div>
                 <label asp-for="NombreCliente">Nombre</label>
-                <input asp-for="NombreCliente" type="text" name="nombre" required/>
+                <input asp-for="NombreCliente" type="text" name="nombre" required />
             </div>
             <div>
                 <label asp-for="ApellidoCliente">Apellido</label>
@@ -30,6 +30,7 @@
                 <label>Contraseña</label>
                 <input type="password" name="contraseña" id="contraseña" onkeyup="confirmacion_contraseña();"
                     name="contraseña" required />
+                <span id="checkconfirm"></span>
             </div>
 
             <div>

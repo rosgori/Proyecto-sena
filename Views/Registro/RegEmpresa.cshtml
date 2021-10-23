@@ -1,3 +1,5 @@
+@model Proyecto_sena.Models.ClienteCompañium;
+
 @{
     ViewData["Title"] = "Registro Empresa";
     Layout = "/Views/Shared/_Layout.cshtml";
@@ -7,33 +9,61 @@
     <div class="cajaRC">
         <img class="centrar" src="/Img/logo-trans-horizontal_1.png" alt="" width="160px" height="50px">
         <h3>Registro Empresa</h3>
-        <label for="">Nit</label>
-        <input type="number" />
+        <form method="POST" asp-action="CrearCompañiaCliente">
 
-        <label for="">Nombre Empresa</label>
-        <input type="text" />
+            <input type="hidden" id="IdClienteCompañia" name="IdClienteCompañia" />
+            <div>
+                <label asp-for="NombreCompañia">Nombre de la compañía</label>
+                <input asp-for="NombreCompañia" type="text" name="NombreCompañia" required />
+            </div>
+            <div>
+                <label asp-for="TelefonoCompañia">Teléfono</label>
+                <input asp-for="TelefonoCompañia" type="text" class="sinborde" name="TelefonoCompañia" required />
+            </div>
 
-        <label for="">Telefono</label>
-        <input type="number" />
+            <div>
+                <label asp-for="CorreoElectronicoCompañia">Correo</label>
+                <input asp-for="CorreoElectronicoCompañia" type="email" name="CorreoElectronicoCompañia" required />
+            </div>
 
-        <label for="">Direccion</label>
-        <input type="text" />
+            <div>
+                <label asp-for="DireccionCompañia">Dirección</label>
+                <input asp-for="DireccionCompañia" type="text" name="DireccionCompañia" required />
+            </div>
 
-        <label for="">Departamento</label>
-        <input type="text" />
+            <div>
+                <label asp-for="NitCompañia">NIT</label>
+                <input asp-for="NitCompañia" type="text" name="NitCompañia" required />
+            </div>
 
-        <label for="">Ciudad</label>
-        <input type="text" />
+            <div>
+                <label asp-for="IdCiudad">Ciudad</label>
+                <select name="IdCiudad" type="text" asp-items="@ViewBag.lista_ciudad" required></select>
 
-        <label for="">Correo</label>
-        <input type="email" />
+            </div>
 
-        <label for="">Contraseña</label>
-        <input type="password" />
+            <div>
+                <label asp-for="DireccionCompañia">Departamento</label>
+                <select name="IdDepartamento" type="text" asp-items="@ViewBag.lista_departamento" required ></select>
+            </div>
 
-        <label for="">Confirmar Contraseña</label>
-        <input type="password" />
+            <div>
+                <label>Contraseña</label>
+                <input type="password" name="contraseña" id="contraseña" onkeyup="confirmacion_contraseña();"
+                    name="contraseña" required />
+                <div id="checkconfirm"></div>
+            </div>
 
-        <div class="centrarbotonregistro"> <a class="" href="">Registrarse</a></div>
+            <div>
+                <label>Confirmar contraseña</label>
+                <input type="password" name="confirmar_contraseña" id="confirmar_contraseña"
+                    onkeyup="confirmacion_contraseña();" required />
+                <span id="checkconfirm"></span>
+            </div>
+            <div class="centrarbotonregistro">
+                <input type="submit" value="Registrarse">
+            </div>
+        </form>
+
     </div>
 </div>

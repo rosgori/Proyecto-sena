@@ -14,11 +14,14 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Proyecto_sena.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace Proyecto_sena
 {
     public class Startup
     {
+        private string connection = null;
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -34,7 +37,8 @@ namespace Proyecto_sena
             //     options.UseSqlite(
             //          Configuration.GetConnectionString("DefaultConnection")));
 
-            // var connectionString = "server=localhost;database=proyecto_innube;user=rosgori;password=;treattinyasboolean=true";
+
+            // var connectionString = "server=localhost;database=proyecto_innube;user=rosgori;password=" + contraseña_bd + ";treattinyasboolean=true";
             // var serverVersion = ServerVersion.AutoDetect(connectionString);
 
             // services.AddDbContext<proyecto_innubeContext>(
@@ -43,6 +47,19 @@ namespace Proyecto_sena
             //     .EnableSensitiveDataLogging() // <-- These two calls are optional but help
             //     .EnableDetailedErrors());     // <-- with debugging (remove for production).
 
+            // string contraseña_bd = Configuration["contra_bd"];
+
+            // var builder = new MySqlConnector.MySqlConnectionStringBuilder(Configuration.GetConnectionString("Innube_db"));
+            // builder.Password = Configuration["contraseña_bd"];
+            // connection = builder.ConnectionString;
+            
+            // services.AddDbContext<proyecto_innubeContext>(
+            //     dbContextOptions =>
+            //         dbContextOptions.
+            //         UseMySql(connection, Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.26-mysql"))
+            //         .EnableSensitiveDataLogging()
+            //         .EnableDetailedErrors()
+            // );
 
             services.AddDatabaseDeveloperPageExceptionFilter();
 
@@ -56,19 +73,24 @@ namespace Proyecto_sena
                 // option.AccessDeniedPath = "/Auth/Denegado";
                 option.Events = new CookieAuthenticationEvents()
                 {
-                    OnSigningIn = async context => {
+                    OnSigningIn = async context =>
+                    {
                         await Task.CompletedTask;
                     },
-                    OnSignedIn = async context => {
+                    OnSignedIn = async context =>
+                    {
                         await Task.CompletedTask;
                     },
-                    OnValidatePrincipal = async context => {
+                    OnValidatePrincipal = async context =>
+                    {
                         await Task.CompletedTask;
                     },
 
                 };
 
             });
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

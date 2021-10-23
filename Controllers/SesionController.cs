@@ -18,6 +18,8 @@ namespace Proyecto_sena.Controllers
     {
         private readonly ILogger<SesionController> _logger;
 
+        private proyecto_innubeContext base_datos  = new proyecto_innubeContext();
+
         public SesionController(ILogger<SesionController> logger)
         {
             _logger = logger;
@@ -33,7 +35,7 @@ namespace Proyecto_sena.Controllers
         public async Task<IActionResult> Ingresar(string correo, string contraseña)
         {
             // lectura de base de datos
-            var base_datos = new proyecto_innubeContext();
+            // Ya se hace al principio de la clase
 
             Cliente persona = base_datos.Clientes.FirstOrDefault(c => c.CorreoElectronicoCliente == correo);
 

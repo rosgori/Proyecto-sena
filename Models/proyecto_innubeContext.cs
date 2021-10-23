@@ -10,11 +10,12 @@ namespace Proyecto_sena.Models
     {
         public proyecto_innubeContext()
         {
+
         }
 
-        public proyecto_innubeContext(DbContextOptions<proyecto_innubeContext> options)
-            : base(options)
+        public proyecto_innubeContext(DbContextOptions<proyecto_innubeContext> options) : base(options)
         {
+
         }
 
         public virtual DbSet<CiudadCompañium> CiudadCompañia { get; set; }
@@ -40,7 +41,10 @@ namespace Proyecto_sena.Models
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
                 // Añadir aquí el usuario y la contraseña de su base de datos
+
                 optionsBuilder.UseMySql("server=localhost;database=proyecto_innube;user=rosgori;password=;treattinyasboolean=true", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.26-mysql"));
+                
+
             }
         }
 

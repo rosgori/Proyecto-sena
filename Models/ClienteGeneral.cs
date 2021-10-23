@@ -17,6 +17,13 @@ namespace Proyecto_sena.Models
         public bool PersonaJuridica { get; set; }
 
         public virtual ICollection<Cotizacion> Cotizacions { get; set; }
+
+        public ClienteGeneral(string id_cliente_general, bool persona_natural, bool persona_juridica)
+        {
+            IdClienteGeneral = id_cliente_general;
+            PersonalNatural = persona_natural;
+            PersonaJuridica = persona_juridica;
+        }
     }
 }
 
