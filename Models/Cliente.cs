@@ -42,5 +42,11 @@ namespace Proyecto_sena.Models
             id_nuevo.Append(num);
             return id_nuevo.ToString();
         }
+
+        public bool ExisteCorreo(string correo) 
+        {
+            
+            return false;
+        }
     }
 }

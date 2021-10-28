@@ -18,7 +18,7 @@ namespace Proyecto_sena.Controllers
     {
         private readonly ILogger<SesionController> _logger;
 
-        private proyecto_innubeContext base_datos  = new proyecto_innubeContext();
+        private proyecto_innubeContext base_datos = new proyecto_innubeContext();
 
         public SesionController(ILogger<SesionController> logger)
         {
@@ -37,6 +37,13 @@ namespace Proyecto_sena.Controllers
             // lectura de base de datos
             // Ya se hace al principio de la clase
 
+            bool existe = base_datos.Clientes.ToList().Exists(c => c.CorreoElectronicoCliente == correo);
+
+            if (!existe)
+            {
+                return View("Index");
+            }
+
             Cliente persona = base_datos.Clientes.FirstOrDefault(c => c.CorreoElectronicoCliente == correo);
 
             uint? id_contraseña = persona.IdContraseñaCliente;
@@ -49,7 +56,16 @@ namespace Proyecto_sena.Controllers
 
             var contraseña_encriptada = ContraseñaCliente.GenerateSaltedHash(bytes_contraseña, bytes_salt);
             var contraseña_encriptada2 = Convert.ToBase64String(contraseña_encriptada);
+
+            existe = base_datos.ContraseñaClientes.ToList().Exists(u => u.ParteEncriptada == contraseña_encriptada2);
+
+            if (!existe)
+            {
+                return View("Index");
+            }
+
             var usuarioLogueado = base_datos.ContraseñaClientes.FirstOrDefault(u => u.ParteEncriptada == contraseña_encriptada2);
+            Console.WriteLine(usuarioLogueado);
 
             if (usuarioLogueado != null)
             {
@@ -66,7 +82,7 @@ namespace Proyecto_sena.Controllers
             else
             {
                 TempData["Error"] = "El usuario o contraseña no son válidos.";
-                return View("Registro/RegCliente");
+                return View("Index");
             }
 
         }
@@ -84,5 +100,7 @@ namespace Proyecto_sena.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        
     }
 }

@@ -193,19 +193,24 @@ on delete cascade
 on update cascade
 );
 
+insert into Ciudad_compañia (nombre_ciudad)
+values ('Bogotá'),
+('Medellín'),
+('Cali'),
+('Barranquilla');
 
+insert into Departamento_compañia (nombre_departamento)
+values ('Antioquia'),
+('Valle del Cauca'),
+('Santander'),
+('Barranquilla');
 
+insert into Servicio_ofrecido (`id_servicio`, `nombre_servicio`, `precio_servicio`, `descripcion`) 
+values ('SO45834545', 'Servicio 1', '34500', 'Es el primer servicios'),
+('SO98987878', 'Servicio 2', '50000', 'Es el segundo servicio');
 
-
-
-
-
-
-
-
-
-
-
-
+insert into Oferta_servicio (`id_servicio`, `id_compañia`) 
+values ('SO45834545', 'CM5755671'),
+('sO98987878', 'CM8432523');
 
 
