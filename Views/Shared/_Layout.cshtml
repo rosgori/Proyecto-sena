@@ -8,10 +8,6 @@
     <script src="https://kit.fontawesome.com/30232a80d3.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
-
-    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" type="text/css">
-
-
 </head>
 
 <body>
@@ -46,24 +42,13 @@
             </nav> *@
 
         <nav>
-            @if (!User.Identity.IsAuthenticated)
-            {
-                <div class="opciones">
-                    <a class="color1" asp-controller="Registro" asp-action="Index">Registrarse</a>
-                    <a class="color2" asp-controller="Sesion" asp-action="Index">Iniciar sesión</a>
-                </div>
-            }
-
-            @if (User.Identity.IsAuthenticated)
-            {
-                <div class="opciones">
-                    <a class="color1"> Hola @User.Identity.Name</a>
-                    <a class="color2" asp-controller="Sesion" asp-action="SalirSesion">Cerrar sesión</a>
-                </div>
-            }
+            <div class="opciones">
+                <a class="color1" asp-controller="Registro" asp-action="Index">Registrarse</a>
+                <a class="color2" asp-controller="Sesion" asp-action="Index">Iniciar sesion</a>
+            </div>
             <div>
                 @* <a asp-controller="Home" asp-action="Index" style="a:hover{ text-decoration: none; color:white}"> *@
-                <img src="~/img/logo-trans-horizontal_1.png" width="200"
+                <img src="~/img/logo-trans-horizontal_1.png" width="20%"
                     alt="Haz clic aquí para volver a la página de inicio" />
                 @* </a> *@
                 <a asp-controller="Home" asp-action="Index">Inicio</a>

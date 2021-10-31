@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 #nullable disable
 
@@ -21,16 +20,5 @@ namespace Proyecto_sena.Models
         public virtual CiudadCompañium IdCiudadNavigation { get; set; }
         public virtual ContraseñaClienteCompañium IdContraseñaCompañiaNavigation { get; set; }
         public virtual DepartamentoCompañium IdDepartamentoNavigation { get; set; }
-
-        public string CrearId()
-        {            
-            var id_nuevo = new StringBuilder();
-            string inicio_exp = "CM";
-            Random num_random = new Random();
-            var num = num_random.Next(100000, 9999999);
-            id_nuevo.Append(inicio_exp);
-            id_nuevo.Append(num);
-            return id_nuevo.ToString();
-        }
     }
 }
