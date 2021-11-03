@@ -1,5 +1,6 @@
-# Para ignorar archivos
+# Para ignorar archivos y carpetas
 
 /bin/
 /obj/
-.vscode
+.vscode/
+.vs/

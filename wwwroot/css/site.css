@@ -160,6 +160,7 @@ a {
   padding: 8px 30px;
   margin: 0px 20px 5px 20px;
   text-decoration: none;
+  text-align: center;
 }
 
 a:hover {
@@ -168,9 +169,10 @@ a:hover {
 }
 
 .cajaRC {
-  padding: 0px 80px 30px 50px;
-  margin: 100px 370px 100px 350px;
+  padding: 60px 60px;
+  margin: auto;
   background-color: #fff;
+  text-align: center;
   color: #215177;
   border: 20px;
   border: 3px solid;
@@ -201,7 +203,8 @@ label {
 
 input {
   border: 0;
-  padding: 8px 45px;
+  margin: 5px;
+  padding: 5px 5px;
   background-color: #eee;
 }
 
