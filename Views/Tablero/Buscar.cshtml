@@ -24,7 +24,7 @@
         <ul>
             <li class="item"><a href="">Usuarios</a></li>
             <li class="item"><a asp-controller="Tablero" asp-action="Buscar">Búsqueda</a></li>
-            <li class="item"><a href="">Usuarios</a></li>
+            <li class="item"><a asp-controller="Tablero" asp-action="MostrarDatos">Mostrar datos</a></li>
             <li class="item"><a href="">Usuarios</a></li>
             <li class="item"><a href="">Usuarios</a></li>
         </ul>
@@ -36,9 +36,9 @@
         <table class="table" id="mitabla">
             <thead>
                 <tr>
-                    <th >Nombre</th>
-                    <th >Precio</th>
-                    <th >Compañia</th>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th>Compañia</th>
 
                 </tr>
             </thead>
@@ -62,6 +62,5 @@
 <script>
     const tablilla = document.querySelector("#mitabla");
     const dataTable = new simpleDatatables.DataTable("tablilla");
-    
-</script>
 
+</script>

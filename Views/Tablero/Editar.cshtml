@@ -1,0 +1,60 @@
+@model Proyecto_sena.Models.Cliente;
+
+@{
+    ViewData["Title"] = "Tablero";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<nav>
+    @* <div class="logo">
+        <img src="~/img/logo-trans-horizontal_1.png" width="180" height="50">
+        </div> *@
+    <div class="sesion">
+        <img src="/img/usuario.jpeg">
+        <span>
+            <strong>Bienvenido,</strong><br>usuario
+            <i class="fas fa-sign-out-alt"></i>
+        </span>
+    </div>
+</nav>
+
+<section id="dashboard">
+    <article class="menu">
+        <ul>
+            <li class="item"><a href="">Usuarios</a></li>
+            <li class="item"><a asp-controller="Tablero" asp-action="Buscar">Búsqueda</a></li>
+            <li class="item"><a asp-controller="Tablero" asp-action="MostrarDatos">Mostrar datos</a></li>
+            <li class="item"><a asp-controller="Tablero" asp-action="Editar">Editar</a></li>
+            <li class="item"><a href="">Usuarios</a></li>
+        </ul>
+    </article>
+    <article class="contenido">
+        <span>
+            Si no desea editar un campo, por favor déjelo en blanco.
+        </span>
+
+        <form method="POST" asp-action="EditarCliente">
+
+            <input type="hidden" id="IdCliente" name="IdCliente" />
+            <div>
+                <label asp-for="NombreCliente">Nombre</label>
+                <input asp-for="NombreCliente" type="text" name="nombre" />
+            </div>
+            <div>
+                <label asp-for="ApellidoCliente">Apellido</label>
+                <input asp-for="ApellidoCliente" type="text" class="sinborde" name="apellido" />
+            </div>
+
+            <div>
+                <label asp-for="CorreoElectronicoCliente">Correo</label>
+                <input asp-for="CorreoElectronicoCliente" type="email" name="correo" />
+            </div>
+
+            <div class="centrarbotonregistro">
+                <input type="submit" value="Editar">
+            </div>
+        </form>
+
+    </article>
+</section>
