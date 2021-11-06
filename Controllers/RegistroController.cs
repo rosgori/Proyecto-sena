@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
 using Proyecto_sena.Models;
+using Proyecto_sena.Models.DAOS;
 
 namespace Proyecto_sena.Controllers
 {
@@ -101,16 +102,16 @@ namespace Proyecto_sena.Controllers
             string contraseña = formCollection["contraseña"];
 
             Cliente clie = new Cliente();
-            clie.IdCliente = clie.CrearId();
+            clie.IdCliente = ClienteDao.CrearId();
             clie.NombreCliente = nombre;
             clie.ApellidoCliente = apellido;
             clie.CorreoElectronicoCliente = correo;
 
-            string salt = ContraseñaCliente.RandomString(10);
+            string salt = ContraseñaClienteDAO.RandomString(10);
             byte[] bytes_contraseña = Encoding.UTF8.GetBytes(contraseña);
             byte[] bytes_salt = Encoding.UTF8.GetBytes(salt);
 
-            var parte_encriptada = ContraseñaCliente.GenerateSaltedHash(bytes_contraseña, bytes_salt);
+            var parte_encriptada = ContraseñaClienteDAO.GenerateSaltedHash(bytes_contraseña, bytes_salt);
 
             var base_datos = new proyecto_innubeContext();
 

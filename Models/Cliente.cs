@@ -31,22 +31,5 @@ namespace Proyecto_sena.Models
         public Cliente () {
 
         }
-
-        public string CrearId()
-        {            
-            var id_nuevo = new StringBuilder();
-            string inicio_exp = "CC";
-            Random num_random = new Random();
-            var num = num_random.Next(100000, 9999999);
-            id_nuevo.Append(inicio_exp);
-            id_nuevo.Append(num);
-            return id_nuevo.ToString();
-        }
-
-        public bool ExisteCorreo(string correo) 
-        {
-            
-            return false;
-        }
     }
 }
