@@ -102,7 +102,7 @@ namespace Proyecto_sena.Controllers
             string contraseña = formCollection["contraseña"];
 
             Cliente clie = new Cliente();
-            clie.IdCliente = ClienteDao.CrearId();
+            clie.IdCliente = ClienteDAO.CrearId();
             clie.NombreCliente = nombre;
             clie.ApellidoCliente = apellido;
             clie.CorreoElectronicoCliente = correo;
@@ -152,7 +152,7 @@ namespace Proyecto_sena.Controllers
             string contraseña = formCollection["contraseña"];
 
             ClienteCompañium clie = new ClienteCompañium();
-            clie.IdClienteCompañia = clie.CrearId();
+            clie.IdClienteCompañia = ClienteCompañiaDAO.CrearId();
             clie.NombreCompañia = nombre;
             clie.TelefonoCompañia = telefono;
             clie.CorreoElectronicoCompañia = correo;
@@ -161,11 +161,11 @@ namespace Proyecto_sena.Controllers
             clie.IdCiudad = UInt16.Parse(id_ciudad);
             clie.IdDepartamento = UInt16.Parse(id_departamento);
 
-            string salt = ContraseñaClienteCompañium.RandomString(10);
+            string salt = ContraseñaClienteCompañiumDAO.RandomString(10);
             byte[] bytes_contraseña = Encoding.UTF8.GetBytes(contraseña);
             byte[] bytes_salt = Encoding.UTF8.GetBytes(salt);
 
-            var parte_encriptada = ContraseñaClienteCompañium.GenerateSaltedHash(bytes_contraseña, bytes_salt);
+            var parte_encriptada = ContraseñaClienteCompañiumDAO.GenerateSaltedHash(bytes_contraseña, bytes_salt);
 
             var base_datos = new proyecto_innubeContext();
 
@@ -213,11 +213,11 @@ namespace Proyecto_sena.Controllers
             clie.IdCiudad = UInt16.Parse(id_ciudad);
             clie.IdDepartamento = UInt16.Parse(id_departamento);
 
-            string salt = ContraseñaClienteCompañium.RandomString(10);
+            string salt = ContraseñaClienteCompañiumDAO.RandomString(10);
             byte[] bytes_contraseña = Encoding.UTF8.GetBytes(contraseña);
             byte[] bytes_salt = Encoding.UTF8.GetBytes(salt);
 
-            var parte_encriptada = ContraseñaClienteCompañium.GenerateSaltedHash(bytes_contraseña, bytes_salt);
+            var parte_encriptada = ContraseñaClienteCompañiumDAO.GenerateSaltedHash(bytes_contraseña, bytes_salt);
 
             var base_datos = new proyecto_innubeContext();
 

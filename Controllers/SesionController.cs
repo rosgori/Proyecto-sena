@@ -38,7 +38,7 @@ namespace Proyecto_sena.Controllers
             // Para el cliente natural
             try
             {
-                var usuarioLogueado = ClienteDao.ExisteUsuario(correo, contraseña);
+                var usuarioLogueado = ClienteDAO.ExisteUsuario(correo, contraseña);
 
                 var solicitudes = new List<Claim>();
                 solicitudes.Add(new Claim("correo", correo));

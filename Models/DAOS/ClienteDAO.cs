@@ -9,7 +9,7 @@ using System.Linq;
 
 namespace Proyecto_sena.Models.DAOS
 {
-    public class ClienteDao
+    public class ClienteDAO
     {
         private static proyecto_innubeContext base_datos = new proyecto_innubeContext();
 
