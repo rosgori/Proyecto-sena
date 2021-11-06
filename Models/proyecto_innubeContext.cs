@@ -42,9 +42,10 @@ namespace Proyecto_sena.Models
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
                 // Añadir aquí el usuario y la contraseña de su base de datos
 
-                optionsBuilder.UseMySql("server=localhost;database=proyecto_innube;user=rosgori;password=;treattinyasboolean=true", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.26-mysql"));
-                
-
+                optionsBuilder.UseMySql("server=localhost;database=proyecto_innube;user=" + Environment.GetEnvironmentVariable("usuario_bd") +
+                ";password=" + Environment.GetEnvironmentVariable("contraseña_bd") + ";treattinyasboolean=true",
+                 Microsoft.EntityFrameworkCore.ServerVersion.AutoDetect("server=localhost;database=proyecto_innube;user=" + Environment.GetEnvironmentVariable("usuario_bd") +
+                ";password=" + Environment.GetEnvironmentVariable("contraseña_bd") + ";treattinyasboolean=true"));
             }
         }
 
