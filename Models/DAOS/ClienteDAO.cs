@@ -28,6 +28,10 @@ namespace Proyecto_sena.Models.DAOS
         {
             var existe = base_datos.Clientes.ToList().Exists(c => c.CorreoElectronicoCliente == correo);
 
+            if (!existe) {
+                return null;
+            }
+
             Cliente persona = base_datos.Clientes.FirstOrDefault(c => c.CorreoElectronicoCliente == correo);
 
             uint? id_contraseña = persona.IdContraseñaCliente;
@@ -42,6 +46,10 @@ namespace Proyecto_sena.Models.DAOS
             var contraseña_encriptada2 = Convert.ToBase64String(contraseña_encriptada);
 
             existe = base_datos.ContraseñaClientes.ToList().Exists(u => u.ParteEncriptada == contraseña_encriptada2);
+
+            if (!existe) {
+                return null;
+            }
 
             var usuarioLogueado = base_datos.ContraseñaClientes.FirstOrDefault(u => u.ParteEncriptada == contraseña_encriptada2);
 

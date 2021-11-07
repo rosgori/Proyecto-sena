@@ -35,12 +35,15 @@ namespace Proyecto_sena.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Ingresar(string correo, string contraseña)
         {
-            // Para el cliente natural
-            try
-            {
-                var usuarioLogueado = ClienteDAO.ExisteUsuario(correo, contraseña);
 
-                var solicitudes = new List<Claim>();
+            var solicitudes = new List<Claim>();
+            // Para el cliente natural
+            
+            var usuarioLogueado1 = ClienteDAO.ExisteUsuario(correo, contraseña);
+
+            if (usuarioLogueado1 != null)
+            {
+                
                 solicitudes.Add(new Claim("correo", correo));
                 solicitudes.Add(new Claim(ClaimTypes.Email, correo));
                 solicitudes.Add(new Claim(ClaimTypes.Name, correo));
@@ -49,14 +52,28 @@ namespace Proyecto_sena.Controllers
                 var solicitud_principal = new ClaimsPrincipal(solicitud_identidad);
                 await HttpContext.SignInAsync(solicitud_principal);
                 return RedirectToAction("Index", "Tablero");
-
-
             }
-            catch (Exception)
+
+            // Para cliente compañía
+
+            var usuarioLogueado2 = ClienteCompañiaDAO.ExisteUsuario(correo, contraseña);
+
+            if (usuarioLogueado2 != null)
             {
-                TempData["Error"] = "El usuario o contraseña no son válidos.";
-                return View("Index");
+                solicitudes.Add(new Claim("correo", correo));
+                solicitudes.Add(new Claim(ClaimTypes.Email, correo));
+                solicitudes.Add(new Claim(ClaimTypes.Name, correo));
+                // solicitudes.Add(new Claim(ClaimTypes.Role, usuarioLogueado.Rol));
+                var solicitud_identidad = new ClaimsIdentity(solicitudes, CookieAuthenticationDefaults.AuthenticationScheme);
+                var solicitud_principal = new ClaimsPrincipal(solicitud_identidad);
+                await HttpContext.SignInAsync(solicitud_principal);
+                return RedirectToAction("Index", "TableroCM");
             }
+
+
+            TempData["Error"] = "El usuario o contraseña no son válidos.";
+            return View("Index");
+
 
         }
 
