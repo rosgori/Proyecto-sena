@@ -70,6 +70,22 @@ namespace Proyecto_sena.Controllers
                 return RedirectToAction("Index", "TableroCM");
             }
 
+            // Para la compañía ofertante
+
+            var usuarioLogueado3 = CompañiumDAO.ExisteUsuario(correo, contraseña);
+
+            if (usuarioLogueado3 != null)
+            {
+                solicitudes.Add(new Claim("correo", correo));
+                solicitudes.Add(new Claim(ClaimTypes.Email, correo));
+                solicitudes.Add(new Claim(ClaimTypes.Name, correo));
+                // solicitudes.Add(new Claim(ClaimTypes.Role, usuarioLogueado.Rol));
+                var solicitud_identidad = new ClaimsIdentity(solicitudes, CookieAuthenticationDefaults.AuthenticationScheme);
+                var solicitud_principal = new ClaimsPrincipal(solicitud_identidad);
+                await HttpContext.SignInAsync(solicitud_principal);
+                return RedirectToAction("Index", "TableroC");
+            }
+
 
             TempData["Error"] = "El usuario o contraseña no son válidos.";
             return View("Index");
