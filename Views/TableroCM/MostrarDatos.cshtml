@@ -1,5 +1,5 @@
 @{
-    ViewData["Title"] = "TableroCM";
+    ViewData["Title"] = "Tablero";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -7,7 +7,7 @@
 <nav>
     @* <div class="logo">
         <img src="~/img/logo-trans-horizontal_1.png" width="180" height="50">
-    </div> *@
+        </div> *@
     <div class="sesion">
         <img src="/img/usuario.jpeg">
         <span>
@@ -20,7 +20,7 @@
 <section id="dashboard">
     <article class="menu">
         <ul>
-            <li class="item"><a href="">Compañías</a></li>
+            <li class="item"><a href="">Compañía</a></li>
             <li class="item"><a asp-controller="TableroCM" asp-action="Buscar">Búsqueda</a></li>
             <li class="item"><a asp-controller="TableroCM" asp-action="MostrarDatos">Mostrar datos</a></li>
             <li class="item"><a asp-controller="TableroCM" asp-action="Editar">Editar</a></li>
@@ -28,13 +28,28 @@
         </ul>
     </article>
     <article class="contenido">
-        <p>
-            Para la compañía cliente sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
+
+        <span>
+            Nombre de la compañía: @ViewBag.compañia.NombreCompañia </br>
+        </span>
+
+        <span>
+            Teléfono de la compañía: @ViewBag.compañia.TelefonoCompañia </br>
+        </span>
+
+        <span>
+            Correo de la compañía: @ViewBag.compañia.CorreoElectronicoCompañia </br>
+        </span>
+        
+        <span>
+            NIT de la compañía: @ViewBag.compañia.NitCompañia </br>
+        </span>
+
+        <span>
+            Dirección de la compañía: @ViewBag.compañia.NitCompañia </br>
+        </span>
+
+        <div>Haga click aquí para cambiar la contraseña</div>
+
     </article>
 </section>

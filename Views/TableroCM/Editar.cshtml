@@ -13,7 +13,7 @@
     <div class="sesion">
         <img src="/img/usuario.jpeg">
         <span>
-            <strong>Bienvenido,</strong><br>usuario
+            <strong>Bienvenido,</strong><br>compañía
             <i class="fas fa-sign-out-alt"></i>
         </span>
     </div>
@@ -22,10 +22,10 @@
 <section id="dashboard">
     <article class="menu">
         <ul>
-            <li class="item"><a href="">Usuarios</a></li>
-            <li class="item"><a asp-controller="Tablero" asp-action="Buscar">Búsqueda</a></li>
-            <li class="item"><a asp-controller="Tablero" asp-action="MostrarDatos">Mostrar datos</a></li>
-            <li class="item"><a asp-controller="Tablero" asp-action="Editar">Editar</a></li>
+            <li class="item"><a href="">Compañía</a></li>
+            <li class="item"><a asp-controller="TableroCM" asp-action="Buscar">Búsqueda</a></li>
+            <li class="item"><a asp-controller="TableroCM" asp-action="MostrarDatos">Mostrar datos</a></li>
+            <li class="item"><a asp-controller="TableroCM" asp-action="Editar">Editar</a></li>
             <li class="item"><a href="">Usuarios</a></li>
         </ul>
     </article>
@@ -35,21 +35,31 @@
         </span>
         <br>
 
-        <form method="POST" asp-action="EditarCliente">
+        <form method="POST" asp-action="EditarCompañia">
 
-            <input type="hidden" id="IdCliente" name="IdCliente" />
+            @* <input type="hidden" id="IdCliente" name="IdCliente" /> *@
             <div>
-                <label asp-for="NombreCliente">Nombre</label>
+                <label asp-for="NombreCliente">Nombre de la compañía</label>
                 <input asp-for="NombreCliente" type="text" name="nombre" />
             </div>
             <div>
-                <label asp-for="ApellidoCliente">Apellido</label>
-                <input asp-for="ApellidoCliente" type="text" class="sinborde" name="apellido" />
+                <label asp-for="ApellidoCliente">Teléfono</label>
+                <input asp-for="ApellidoCliente" type="text" class="sinborde" name="telefono" />
             </div>
 
             <div>
                 <label asp-for="CorreoElectronicoCliente">Correo</label>
                 <input asp-for="CorreoElectronicoCliente" type="email" name="correo" />
+            </div>
+
+            <div>
+                <label asp-for="CorreoElectronicoCliente">Dirección</label>
+                <input asp-for="CorreoElectronicoCliente" type="text" name="direccion" />
+            </div>
+
+            <div>
+                <label asp-for="CorreoElectronicoCliente">NIT de la compañía</label>
+                <input asp-for="CorreoElectronicoCliente" type="text" name="nit_compañia" />
             </div>
 
             <div class="centrarbotonregistro">

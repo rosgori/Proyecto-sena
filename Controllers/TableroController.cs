@@ -52,9 +52,9 @@ namespace Proyecto_sena.Controllers
         public IActionResult MostrarDatos()
         {
             var correo = User.Identity.Name;
-            var persona = base_datos.Clientes.FirstOrDefault(u => u.CorreoElectronicoCliente == correo );
+            var persona = base_datos.Clientes.FirstOrDefault(u => u.CorreoElectronicoCliente == correo);
 
-            ViewBag.persona = persona;            
+            ViewBag.persona = persona;
             return View();
         }
 
@@ -62,9 +62,9 @@ namespace Proyecto_sena.Controllers
         public IActionResult Editar()
         {
             var correo = User.Identity.Name;
-            var persona = base_datos.Clientes.FirstOrDefault(u => u.CorreoElectronicoCliente == correo );
+            var persona = base_datos.Clientes.FirstOrDefault(u => u.CorreoElectronicoCliente == correo);
 
-            ViewBag.persona = persona;            
+            ViewBag.persona = persona;
             return View();
         }
 
@@ -76,22 +76,25 @@ namespace Proyecto_sena.Controllers
             string correo = formCollection["correo"];
 
             var correo_original = User.Identity.Name;
-            var persona = base_datos.Clientes.FirstOrDefault(u => u.CorreoElectronicoCliente == correo );
+            var persona = base_datos.Clientes.FirstOrDefault(u => u.CorreoElectronicoCliente == correo_original);
 
-            if (!nombre.Equals("")) {
+            if (!nombre.Equals(""))
+            {
                 persona.NombreCliente = nombre;
             }
-            
-            if (!apellido.Equals("")) {
+
+            if (!apellido.Equals(""))
+            {
                 persona.ApellidoCliente = apellido;
             }
 
-            if (!correo.Equals("")) {
+            if (!correo.Equals(""))
+            {
                 persona.CorreoElectronicoCliente = correo;
-            }           
+            }
 
             base_datos.SaveChanges();
-            
+
             return RedirectToAction("Index");
         }
 
