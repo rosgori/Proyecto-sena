@@ -1,0 +1,71 @@
+@model Proyecto_sena.Models.Cliente;
+
+@{
+    ViewData["Title"] = "Tablero";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<nav>
+    @* <div class="logo">
+        <img src="~/img/logo-trans-horizontal_1.png" width="180" height="50">
+        </div> *@
+    <div class="sesion">
+        <img src="/img/usuario.jpeg">
+        <span>
+            <strong>Bienvenido,</strong><br>compañía
+            <i class="fas fa-sign-out-alt"></i>
+        </span>
+    </div>
+</nav>
+
+<section id="dashboard">
+    <article class="menu">
+        <ul>
+            <li class="item"><a href="">Compañía</a></li>
+            <li class="item"><a asp-controller="TableroCM" asp-action="Buscar">Búsqueda</a></li>
+            <li class="item"><a asp-controller="TableroCM" asp-action="MostrarDatos">Mostrar datos</a></li>
+            <li class="item"><a asp-controller="TableroCM" asp-action="Editar">Editar</a></li>
+            <li class="item"><a href="">Usuarios</a></li>
+        </ul>
+    </article>
+    <article class="contenido">
+        <span>
+            Si no desea editar un campo, por favor déjelo en blanco.
+        </span>
+        <br>
+
+        <form method="POST" asp-action="EditarCompañia">
+
+            @* <input type="hidden" id="IdCliente" name="IdCliente" /> *@
+            <div>
+                <label asp-for="NombreCliente">Nombre de la compañía</label>
+                <input asp-for="NombreCliente" type="text" name="nombre" />
+            </div>
+            <div>
+                <label asp-for="ApellidoCliente">Teléfono</label>
+                <input asp-for="ApellidoCliente" type="text" class="sinborde" name="telefono" />
+            </div>
+
+            <div>
+                <label asp-for="CorreoElectronicoCliente">Correo</label>
+                <input asp-for="CorreoElectronicoCliente" type="email" name="correo" />
+            </div>
+
+            <div>
+                <label asp-for="CorreoElectronicoCliente">Dirección</label>
+                <input asp-for="CorreoElectronicoCliente" type="text" name="direccion" />
+            </div>
+
+            <div>
+                <label asp-for="CorreoElectronicoCliente">NIT de la compañía</label>
+                <input asp-for="CorreoElectronicoCliente" type="text" name="nit_compañia" />
+            </div>
+
+            <div class="centrarbotonregistro">
+                <input type="submit" value="Editar">
+            </div>
+        </form>
+
+    </article>
+</section>

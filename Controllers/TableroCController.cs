@@ -11,12 +11,12 @@ using Proyecto_sena.Models;
 
 namespace Proyecto_sena.Controllers
 {
-    public class TableroCMController : Controller
+    public class TableroCController : Controller
     {
         private proyecto_innubeContext base_datos = new proyecto_innubeContext();
-        private readonly ILogger<TableroCMController> _logger;
+        private readonly ILogger<TableroCController> _logger;
 
-        public TableroCMController(ILogger<TableroCMController> logger)
+        public TableroCController(ILogger<TableroCController> logger)
         {
             _logger = logger;
         }
@@ -31,7 +31,7 @@ namespace Proyecto_sena.Controllers
         public IActionResult MostrarDatos()
         {
             var correo = User.Identity.Name;
-            var compañia = base_datos.Compañia.FirstOrDefault(u => u.CorreoElectronicoCompañia == correo);
+            var compañia = base_datos.ClienteCompañia.FirstOrDefault(u => u.CorreoElectronicoCompañia == correo);
 
             ViewBag.compañia = compañia;
             return View();
@@ -53,7 +53,7 @@ namespace Proyecto_sena.Controllers
             string nit_compañia = formCollection["nit_compañia"];
 
             var correo_original = User.Identity.Name;
-            var compañia = base_datos.Compañia.FirstOrDefault(u => u.CorreoElectronicoCompañia == correo_original);
+            var compañia = base_datos.ClienteCompañia.FirstOrDefault(u => u.CorreoElectronicoCompañia == correo_original);
 
             if (!nombre.Equals(""))
             {

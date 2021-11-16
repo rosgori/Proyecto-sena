@@ -1,0 +1,55 @@
+@{
+    ViewData["Title"] = "Tablero";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<nav>
+    @* <div class="logo">
+        <img src="~/img/logo-trans-horizontal_1.png" width="180" height="50">
+        </div> *@
+    <div class="sesion">
+        <img src="/img/usuario.jpeg">
+        <span>
+            <strong>Bienvenido,</strong><br>usuario
+            <i class="fas fa-sign-out-alt"></i>
+        </span>
+    </div>
+</nav>
+
+<section id="dashboard">
+    <article class="menu">
+        <ul>
+            <li class="item"><a href="">Compañía</a></li>
+            <li class="item"><a asp-controller="TableroCM" asp-action="Buscar">Búsqueda</a></li>
+            <li class="item"><a asp-controller="TableroCM" asp-action="MostrarDatos">Mostrar datos</a></li>
+            <li class="item"><a asp-controller="TableroCM" asp-action="Editar">Editar</a></li>
+            <li class="item"><a href="">Usuarios</a></li>
+        </ul>
+    </article>
+    <article class="contenido">
+
+        <span>
+            Nombre de la compañía: @ViewBag.compañia.NombreCompañia </br>
+        </span>
+
+        <span>
+            Teléfono de la compañía: @ViewBag.compañia.TelefonoCompañia </br>
+        </span>
+
+        <span>
+            Correo de la compañía: @ViewBag.compañia.CorreoElectronicoCompañia </br>
+        </span>
+        
+        <span>
+            NIT de la compañía: @ViewBag.compañia.NitCompañia </br>
+        </span>
+
+        <span>
+            Dirección de la compañía: @ViewBag.compañia.NitCompañia </br>
+        </span>
+
+        <div>Haga click aquí para cambiar la contraseña</div>
+
+    </article>
+</section>
