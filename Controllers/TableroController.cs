@@ -1,7 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+
 using System.Linq;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -36,6 +39,7 @@ namespace Proyecto_sena.Controllers
             foreach (var ofer in oferta_servicios)
             {
                 var servicio = base_datos.ServicioOfrecidos.FirstOrDefault(u => u.IdServicio == ofer.IdServicio);
+                lista_datos.Add(servicio.IdServicio);
                 lista_datos.Add(servicio.NombreServicio);
                 lista_datos.Add(servicio.PrecioServicio.ToString());
                 var comp = base_datos.Compañia.FirstOrDefault(u => u.IdCompañia == ofer.IdCompañia);
@@ -96,6 +100,18 @@ namespace Proyecto_sena.Controllers
             base_datos.SaveChanges();
 
             return RedirectToAction("Index");
+        }
+
+        [Authorize]
+        [HttpPost]
+        public void CogerDatos([FromBody] dynamic values)
+        {
+
+            Console.WriteLine("Probando");
+            Console.WriteLine(values);
+            // var message = JsonSerializer.Deserialize<List<String>>(algo);
+            // Console.WriteLine(message);
+
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
