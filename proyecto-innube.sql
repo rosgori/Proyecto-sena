@@ -213,4 +213,7 @@ insert into Oferta_servicio (`id_servicio`, `id_compañia`)
 values ('SO45834545', 'CM5755671'),
 ('sO98987878', 'CM8432523');
 
+alter table `proyecto_innube`.`Servicio_ofrecido` 
+change column `nombre_servicio` `nombre_servicio` varchar(100) not null ;
+
 

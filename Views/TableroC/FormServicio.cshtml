@@ -29,13 +29,34 @@
         </ul>
     </article>
     <article class="contenido">
-        <p>
-            Para la compañía que oferta productos sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
+        Para agregar un servicios
+        <br>
+        <br>
+        <form method="POST" asp-action="AgregarServicio">
+
+            <input type="hidden" id="id-servicio" name="id-servicio"/>
+            <div>
+                <label for="nombre_servicio">Nombre del servicio</label>
+                <input for="nombre_servicio" type="text" name="nombre_servicio" required />
+            </div>
+            <div>
+                <label for="precio_servicio">Precio del servicio</label>
+                <input for="precio_servicio" type="text" name="precio_servicio" required />
+            </div>
+
+            <div>
+                <label for="descripcion-servicio">Descripción del servicio</label>
+                <br>
+                <textarea for="descripcion-servicio" type="text" name="descripcion-servicio" 
+                row="5" cols="20" required >
+                </textarea>
+            </div>
+
+            <div>
+                <input class="btn btn-primary" type="submit" value="Agregar">
+            </div>
+
+        </form>
+
     </article>
 </section>
