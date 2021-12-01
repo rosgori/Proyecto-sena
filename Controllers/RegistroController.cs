@@ -204,7 +204,7 @@ namespace Proyecto_sena.Controllers
             string contraseña = formCollection["contraseña"];
 
             Compañium clie = new Compañium();
-            clie.IdCompañia = clie.CrearId();
+            clie.IdCompañia = CompañiumDAO.CrearId();
             clie.NombreCompañia = nombre;
             clie.TelefonoCompañia = telefono;
             clie.CorreoElectronicoCompañia = correo;
@@ -213,11 +213,11 @@ namespace Proyecto_sena.Controllers
             clie.IdCiudad = UInt16.Parse(id_ciudad);
             clie.IdDepartamento = UInt16.Parse(id_departamento);
 
-            string salt = ContraseñaClienteCompañiumDAO.RandomString(10);
+            string salt = ContraseñaCompañiumDAO.RandomString(10);
             byte[] bytes_contraseña = Encoding.UTF8.GetBytes(contraseña);
             byte[] bytes_salt = Encoding.UTF8.GetBytes(salt);
 
-            var parte_encriptada = ContraseñaClienteCompañiumDAO.GenerateSaltedHash(bytes_contraseña, bytes_salt);
+            var parte_encriptada = ContraseñaCompañiumDAO.GenerateSaltedHash(bytes_contraseña, bytes_salt);
 
             var base_datos = new proyecto_innubeContext();
 

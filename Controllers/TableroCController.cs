@@ -31,7 +31,7 @@ namespace Proyecto_sena.Controllers
         public IActionResult MostrarDatos()
         {
             var correo = User.Identity.Name;
-            var compañia = base_datos.ClienteCompañia.FirstOrDefault(u => u.CorreoElectronicoCompañia == correo);
+            var compañia = base_datos.Compañia.FirstOrDefault(u => u.CorreoElectronicoCompañia == correo);
 
             ViewBag.compañia = compañia;
             return View();
