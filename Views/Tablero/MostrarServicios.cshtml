@@ -1,5 +1,5 @@
 @{
-    ViewData["Title"] = "TableroC";
+    ViewData["Title"] = "Mostrar servicios";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -20,25 +20,21 @@
 <section id="dashboard">
     <article class="menu">
         <ul>
-            <li class="item"><a href="">Compañías</a></li>
-            <li class="item"><a asp-controller="TableroC" asp-action="Buscar">Búsqueda</a></li>
-            <li class="item"><a asp-controller="TableroC" asp-action="MostrarDatos">Mostrar datos</a></li>
-            <li class="item"><a asp-controller="TableroC" asp-action="Editar">Editar</a></li>
-            <li class="item"><a asp-controller="TableroC" asp-action="ListarServicios">Servicios</a></li>
+            <li class="item"><a href="">Usuarios</a></li>
+            <li class="item"><a asp-controller="Tablero" asp-action="Buscar">Búsqueda</a></li>
+            <li class="item"><a asp-controller="Tablero" asp-action="MostrarDatos">Mostrar datos</a></li>
+            <li class="item"><a asp-controller="Tablero" asp-action="Editar">Editar</a></li>
             <li class="item"><a href="">Usuarios</a></li>
         </ul>
     </article>
     <article class="contenido">
-        Para listar servicios
-        <br>
-        <br>
-        <table id="mitabla2">
+        <table id="mitabla">
             <thead>
                 <tr>
                     <th class="id_producto">Id producto</th>
                     <th>Nombre</th>
                     <th>Precio</th>
-                    
+
                     <th></th>
 
                 </tr>
@@ -50,30 +46,22 @@
                         <td class="id_producto"> @ViewBag.lista[i]</td>
                         <td> @ViewBag.lista[i + 1]</td>
                         <td> @ViewBag.lista[i +2]</td>
+
                         <td>
-                            <button type="button" class="btn btn-primary" data-id=@ViewBag.lista[i]
-                            data-bs-toggle="button" autocomplete="off">
-                                Eliminar</button> 
-                            <button type="button" class="btn btn-primary" data-id=@ViewBag.lista[i]
-                            data-bs-toggle="button" autocomplete="off">
-                                Editar</button>
+
                         </td>
                     </tr>
                 }
             </tbody>
 
         </table>
-        <br>
-        <br>
-
-        <a class="btn btn-primary" asp-controller="TableroC" asp-action="FormServicio" role="button">Agregar
-            servicio</a>
-
     </article>
 </section>
+
 
 <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest"></script>
 
 <script>
-    const dataTable = new simpleDatatables.DataTable("#mitabla2");
+    const dataTable = new simpleDatatables.DataTable("#mitabla");
+
 </script>

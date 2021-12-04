@@ -3,8 +3,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Hola</h2>
-
 <nav>
     @* <div class="logo">
         <img src="~/img/logo-trans-horizontal_1.png" width="180" height="50">
@@ -68,7 +66,8 @@
         </table>
         <br>
         <br>
-        <a id="envio" class="btn btn-primary">Enviar algo</a>
+        <a id="envio-boton" asp-controller="Tablero" asp-action="MostrarServicios" class="btn btn-primary">Enviar
+            algo</a>
 
     </section>
 </section>
@@ -96,31 +95,34 @@
 
     });
 
-    const boton = document.querySelector("#envio");
-    boton.addEventListener("click", async (evento) => {
-        const url = "../Tablero/CogerDatos";
+    const boton = document.getElementById("envio-boton");
+    boton.addEventListener("click", (evento) => {
         evento.preventDefault();
-        const lista_ids = [];
+
+        const url = "../Tablero/CogerDatos";
+
+        const lista_ids = { "ids": [] };
         conjunto_ids.forEach(function (value) {
-            lista_ids.push({ "id": value })
+            lista_ids.ids.push({ "id": value })
         });
+
         try {
-            const response = await fetch(url, {
+            const response = fetch(url, {
                 method: "POST",
                 body: JSON.stringify(lista_ids),
                 headers: {
                     "Content-Type": "application/json;charset=utf-8",
-                },
-            }).then(res => res.json()).
-                then(data => console.log(data)).
+                }
+            }).then(console.log(JSON.stringify(lista_ids))).
+                then(response => {
+                    console.dir(response);
+                    console.info(response.url);
+                    window.location.replace(response.url);
+                }).
                 catch(error => console.error(error));
-            let json_archivo = await response.json();
-            console.log(json_archivo);
-
         } catch (e) {
             console.error(e);
         }
     });
-
 
 </script>

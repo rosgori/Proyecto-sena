@@ -4,12 +4,14 @@ using System.Diagnostics;
 
 using System.Linq;
 using System.Text.Json;
-using System.Text.Json.Serialization;
+// using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using Proyecto_sena.Models;
 
 namespace Proyecto_sena.Controllers
@@ -103,15 +105,48 @@ namespace Proyecto_sena.Controllers
         }
 
         [Authorize]
-        [HttpPost]
-        public void CogerDatos([FromBody] dynamic values)
+        public IActionResult CogerDatos([FromBody] JsonDocument values)
         {
+            List<string> listas_ids = new List<string>();
 
             Console.WriteLine("Probando");
-            Console.WriteLine(values);
-            // var message = JsonSerializer.Deserialize<List<String>>(algo);
-            // Console.WriteLine(message);
+            JsonElement a = values.RootElement;
+            JsonElement ids = a.GetProperty("ids");
+            foreach (var c in ids.EnumerateArray())
+            {
+                if (c.TryGetProperty("id", out JsonElement valor_id))
+                {
+                    listas_ids.Add(valor_id.GetString());
+                }
+            }
+            TempData["lista_ids"] = listas_ids;
 
+            return RedirectToAction("MostrarServicios", new { ll = listas_ids });
+        }
+
+        [Authorize]
+        [HttpGet]
+        // public IActionResult MostrarServicios([FromBody] JsonDocument values)
+        public IActionResult MostrarServicios(List<string> ll)
+        {
+            List<String> lista_datos = new List<string>();
+            // var ids = CogerDatos(values);
+            var ids = ll;
+
+            IEnumerable<string> ids2 = ids as IEnumerable<string>;
+
+            foreach (var item in ids)
+            {
+                var servicio = base_datos.ServicioOfrecidos.FirstOrDefault(u => u.IdServicio.Equals(item));
+                lista_datos.Add(servicio.IdServicio);
+                lista_datos.Add(servicio.NombreServicio);
+                lista_datos.Add(servicio.PrecioServicio.ToString());
+            }
+
+            ViewBag.longitud = lista_datos.Count();
+            ViewBag.lista = lista_datos;
+
+            return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
