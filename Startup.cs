@@ -21,7 +21,7 @@ namespace Proyecto_sena
 {
     public class Startup
     {
-        private string connection = null;
+        // private string connection = null;
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
