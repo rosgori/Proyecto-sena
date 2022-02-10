@@ -16,21 +16,23 @@ namespace Proyecto_sena.Models.DAOS
 
         public static byte[] GenerateSaltedHash(byte[] plainText, byte[] salt)
         {
-            HashAlgorithm algorithm = new SHA256Managed();
-
-            byte[] plainTextWithSaltBytes =
-              new byte[plainText.Length + salt.Length];
-
-            for (int i = 0; i < plainText.Length; i++)
+            using (SHA256 algorithm = SHA256.Create())
             {
-                plainTextWithSaltBytes[i] = plainText[i];
-            }
-            for (int i = 0; i < salt.Length; i++)
-            {
-                plainTextWithSaltBytes[plainText.Length + i] = salt[i];
-            }
 
-            return algorithm.ComputeHash(plainTextWithSaltBytes);
+                byte[] plainTextWithSaltBytes =
+                  new byte[plainText.Length + salt.Length];
+
+                for (int i = 0; i < plainText.Length; i++)
+                {
+                    plainTextWithSaltBytes[i] = plainText[i];
+                }
+                for (int i = 0; i < salt.Length; i++)
+                {
+                    plainTextWithSaltBytes[plainText.Length + i] = salt[i];
+                }
+
+                return algorithm.ComputeHash(plainTextWithSaltBytes);
+            }
         }
 
         public static string RandomString(int length)
