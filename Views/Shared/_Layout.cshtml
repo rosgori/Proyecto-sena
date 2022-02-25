@@ -9,6 +9,7 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     @* <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" /> *@
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/style.css" />
 
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" type="text/css">
     <script src="https://kit.fontawesome.com/30232a80d3.js" crossorigin="anonymous"></script>
@@ -16,37 +17,8 @@
 
 </head>
 
-<body>
+<body class="main-layout">
     <header>
-        @* <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow
-            mb-3">
-            <div class="container">
-            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Innube</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-            <ul class="navbar-nav flex-grow-1">
-            <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Registro" asp-action="Index">Registro</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="">Inicio de sesión</a>
-            </li>
-            </ul>
-            <partial name="_LoginPartial" />
-            </div>
-            </div>
-            </nav> *@
-
         <nav>
             @if (!User.Identity.IsAuthenticated)
             {
@@ -63,33 +35,176 @@
                     <a class="color2" asp-controller="Sesion" asp-action="SalirSesion">Cerrar sesión</a>
                 </div>
             }
-            <div>
-                @* <a asp-controller="Home" asp-action="Index" style="a:hover{ text-decoration: none; color:white}"> *@
-                <img src="~/img/logo-trans-horizontal_1.png" width="200"
-                    alt="Haz clic aquí para volver a la página de inicio" />
-                @* </a> *@
-                <a asp-controller="Home" asp-action="Index">Inicio</a>
-                <a href="">Servicios en la nube</a>
-                <a href="">Funcionalidades</a>
-                <a href="">Ventajas</a>
-                <a href="">Contactenos</a>
-            </div>
         </nav>
 
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2021 - Innube <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        <div class="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
+                        <div class="full">
+                            <div class="center-desk">
+                                <div class="logo">
+                                    <a href="index.html"><img src="~/img/logo-trans-horizontal_1.png" width="100"
+                                            alt="#" /></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
+                        <nav class="navigation navbar navbar-expand-md navbar-dark">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false"
+                                aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarsExample04">
+                                <ul class="navbar-nav mr-auto">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Inicio</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#"> Servicios en la nube </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#service"> Funcionalidades</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#contact">Ventajas</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Contáctenos</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
         </div>
-    </footer>
+    </header>
+
+    @* <div class="container">
+        <main role="main" class="pb-3"> *@
+    @RenderBody()
+    @* </main>
+        </div> *@
+
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+
+
+
+    <svg class="footer-frame" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"
+        viewBox="0 0 1920 79">
+        <defs>
+            <style>
+                .cls-2 {
+                    fill: #5f4def;
+                }
+            </style>
+        </defs>
+        <title>footer-frame</title>
+        <path class="cls-2"
+            d="M0,72.427C143,12.138,255.5,4.577,328.644,7.943c147.721,6.8,183.881,60.242,320.83,53.737,143-6.793,167.826-68.128,293-60.9,109.095,6.3,115.68,54.364,225.251,57.319,113.58,3.064,138.8-47.711,251.189-41.8,104.012,5.474,109.713,50.4,197.369,46.572,89.549-3.91,124.375-52.563,227.622-50.155A338.646,338.646,0,0,1,1920,23.467V79.75H0V72.427Z"
+            transform="translate(0 -0.188)" />
+    </svg>
+
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+
+
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="footer-col first">
+                        <h4>About Tivo</h4>
+                        <p class="p-small">
+                            We're passionate about designing and developing one of the best
+                            marketing apps in the market
+                        </p>
+                    </div>
+                </div>
+                <!-- end of col -->
+                <div class="col-md-4">
+                    <div class="footer-col middle">
+                        <h4>Important Links</h4>
+                        <ul class="list-unstyled li-space-lg p-small">
+                            <li class="media">
+                                <i class="fas fa-square"></i>
+                                <div class="media-body">
+                                    Our business partners
+                                    <a class="white" href="#your-link">startupguide.com</a>
+                                </div>
+                            </li>
+                            <li class="media">
+                                <i class="fas fa-square"></i>
+                                <div class="media-body">
+                                    Read our
+                                    <a class="white" href="terms-conditions.html">Terms & Conditions</a>,
+                                    <a class="white" href="privacy-policy.html">Privacy Policy</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- end of col -->
+                <div class="col-md-4">
+                    <div class="footer-col last">
+                        <h4>Contact</h4>
+                        <ul class="list-unstyled li-space-lg p-small">
+                            <li class="media">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div class="media-body">
+                                    22 Innovative, San Francisco, CA 94043, US
+                                </div>
+                            </li>
+                            <li class="media">
+                                <i class="fas fa-envelope"></i>
+                                <div class="media-body">
+                                    <a class="white" href="mailto:contact@tivo.com">contact@tivo.com</a>
+                                    <i class="fas fa-globe"></i><a class="white" href="#your-link">www.tivo.com</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- end of col -->
+            </div>
+            <!-- end of row -->
+        </div>
+        <!-- end of container -->
+    </div>
     @* <script src="~/lib/jquery/dist/jquery.min.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script> *@
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
