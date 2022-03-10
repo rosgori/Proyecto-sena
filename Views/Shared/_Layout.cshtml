@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     @* <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" /> *@
-    <link rel="stylesheet" href="~/css/site.css" />
+    @* <link rel="stylesheet" href="~/css/site.css" /> *@
     <link rel="stylesheet" href="~/css/style.css" />
 
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" type="text/css">
@@ -19,24 +19,24 @@
 
 <body class="main-layout">
     <header>
-        <nav>
+        @* <nav>
             @if (!User.Identity.IsAuthenticated)
             {
-                <div class="opciones">
-                    <a class="color1" asp-controller="Registro" asp-action="Index">Registrarse</a>
-                    <a class="color2" asp-controller="Sesion" asp-action="Index">Iniciar sesión</a>
-                </div>
+            <div class="opciones">
+            <a class="color1" asp-controller="Registro" asp-action="Index">Registrarse</a>
+            <a class="color2" asp-controller="Sesion" asp-action="Index">Iniciar sesión</a>
+            </div>
             }
 
             @if (User.Identity.IsAuthenticated)
             {
-                <div class="opciones">
-                    <a class="color1"> Hola @User.Identity.Name</a>
-                    <a class="color2" asp-controller="Sesion" asp-action="SalirSesion">Cerrar sesión</a>
-                </div>
+            <div class="opciones">
+            <a class="color1"> Hola @User.Identity.Name</a>
+            <a class="color2" asp-controller="Sesion" asp-action="SalirSesion">Cerrar sesión</a>
+            </div>
             }
-        </nav>
-
+            </nav>
+        *@
         <div class="header">
             <div class="container">
                 <div class="row">
@@ -44,8 +44,7 @@
                         <div class="full">
                             <div class="center-desk">
                                 <div class="logo">
-                                    <a href="index.html"><img src="~/img/logo-trans-horizontal_1.png" width="100"
-                                            alt="#" /></a>
+                                    <a href="index.html"><img src="~/img/logo-trans-horizontal_1.png" alt="#" /></a>
                                 </div>
                             </div>
                         </div>
@@ -63,7 +62,7 @@
                                         <a class="nav-link" href="#">Inicio</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#"> Servicios en la nube </a>
+                                        <a class="nav-link" href="#"> Innube </a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="#service"> Funcionalidades</a>
@@ -73,6 +72,9 @@
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="#">Contáctenos</a>
+                                    </li>
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="#">Iniciar Sesión</a>
                                     </li>
                                 </ul>
                             </div>
@@ -89,40 +91,12 @@
     @* </main>
         </div> *@
 
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-
-
-
     <svg class="footer-frame" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"
         viewBox="0 0 1920 79">
         <defs>
             <style>
                 .cls-2 {
-                    fill: #5f4def;
+                    fill: #042d53;
                 }
             </style>
         </defs>
@@ -131,21 +105,12 @@
             d="M0,72.427C143,12.138,255.5,4.577,328.644,7.943c147.721,6.8,183.881,60.242,320.83,53.737,143-6.793,167.826-68.128,293-60.9,109.095,6.3,115.68,54.364,225.251,57.319,113.58,3.064,138.8-47.711,251.189-41.8,104.012,5.474,109.713,50.4,197.369,46.572,89.549-3.91,124.375-52.563,227.622-50.155A338.646,338.646,0,0,1,1920,23.467V79.75H0V72.427Z"
             transform="translate(0 -0.188)" />
     </svg>
-
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-
-
     <div class="footer">
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
                     <div class="footer-col first">
-                        <h4>About Tivo</h4>
+                        <h4>Sobre Innube</h4>
                         <p class="p-small">
                             We're passionate about designing and developing one of the best
                             marketing apps in the market
@@ -202,6 +167,8 @@
         </div>
         <!-- end of container -->
     </div>
+    <!-- end of footer -->
+
     @* <script src="~/lib/jquery/dist/jquery.min.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script> *@
 

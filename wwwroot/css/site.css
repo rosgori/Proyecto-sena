@@ -8,9 +8,9 @@ a.navbar-brand {
 }
 
 /* Provide sufficient contrast against white background */
-a {
+/* a {
   color: #0366d6;
-}
+} */
 
 .btn-primary {
   color: #fff;
@@ -18,12 +18,12 @@ a {
   border-color: #1861ac;
 }
 
-.nav-pills .nav-link.active,
+/* .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
   color: #fff;
   background-color: #1b6ec2;
   border-color: #1861ac;
-}
+} */
 
 /* Sticky footer styles
 -------------------------------------------------- */
@@ -163,10 +163,10 @@ a {
   text-align: center;
 }
 
-a:hover {
+/* a:hover {
   color: #fff;
   background-color: #215177;
-}
+} */
 
 .cajaRC {
   padding: 60px 60px;
@@ -253,18 +253,17 @@ input {
   padding: 15px;
 }
 
-/*dasboard*/
+/*dashboard*/
 
-header {
+/* header {
   display: flex;
   justify-content: space-between;
   padding: 0 0.5rem;
-}
+} */
 
-.logo img {
-  max-width: 250px;
-  width: 100%;
-}
+/* .logo img {
+  width: 70%;
+} */
 
 .sesion {
   display: flex;
@@ -303,12 +302,12 @@ header {
   display: block;
 }
 
-.menu a:hover {
+/* .menu a:hover {
   background-color: #215177;
   border-left: 3px solid #fff;
   padding-left: 50px;
   transition: all 2s;
-}
+} */
 
 .contenido {
   flex-basis: 80%;

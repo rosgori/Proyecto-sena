@@ -124,6 +124,7 @@ p {
   font-weight: 300;
   font-size: 15px;
   line-height: 24px;
+  color: #000;
 }
 
 a {
@@ -144,7 +145,7 @@ a,
 }
 
 img {
-  max-width: 100%;
+  max-width: 70%;
   height: auto;
 }
 
@@ -261,22 +262,25 @@ button {
 }
 
 .navigation.navbar-dark .navbar-nav .nav-link {
-  padding: 0 25px;
+  padding: 0 10px;
   color: #fff;
   font-size: 16px;
   line-height: 20px;
+  font-weight: 400;
+  color: black;
 }
 
 .navigation.navbar-dark .navbar-nav .nav-link:focus,
 .navigation.navbar-dark .navbar-nav .nav-link:hover {
-  color: #fdd430;
+  color: #deb202;
+  background: none;
 }
 
 .navigation.navbar-dark .navbar-nav .active > .nav-link,
 .navigation.navbar-dark .navbar-nav .nav-link.active,
 .navigation.navbar-dark .navbar-nav .nav-link.show,
 .navigation.navbar-dark .navbar-nav .show > .nav-link {
-  color: #fdd430;
+  color: #deb202;
 }
 
 /*-- header area --*/
@@ -286,9 +290,9 @@ button {
 /*--------------------------------------------------------------------- layout new css ---------------------------------------------------------------------*/
 
 .header {
-  background: #042d53;
+  background: #fff;
   width: 100%;
-  padding: 40px 40px 40px 40px;
+  padding: 20px 40px 20px 40px;
 }
 
 .logo a {
@@ -297,6 +301,7 @@ button {
   text-transform: uppercase;
   color: #fff;
   line-height: 40px;
+  background: none;
 }
 
 .banner_main {
@@ -304,6 +309,7 @@ button {
   background-size: 100% 100%;
   background-repeat: no-repeat;
   padding-bottom: 90px;
+  padding-top: 15px;
 }
 
 .text-bg h1 {
@@ -345,6 +351,12 @@ button {
   color: #fff;
 }
 
+.text-img {
+  padding-left: 0px;
+  margin-left: 100px;
+  margin-top: 50px;
+}
+
 .text-img figure {
   margin: 0px;
 }
@@ -353,23 +365,35 @@ button {
   width: 100%;
 }
 
+.text-img > figure:nth-child(1) > img:nth-child(1) {
+  max-width: 100%;
+}
+
+#bloque_inicial {
+  margin-top: 30px;
+}
+
 .titlepage {
   text-align: center;
-  padding-bottom: 60px;
+  padding-bottom: 30px;
 }
 
 .titlepage h2 {
   font-size: 45px;
-  color: #0c0f38;
+  color: #042d53;
   line-height: 40px;
   font-weight: bold;
   padding: 0;
 }
 
+#imagen-descripcion {
+
+}
+
 /** Hosting section **/
 
 .hosting {
-  padding-top: 90px;
+  padding-top: 50px;
 }
 
 .web_hosting {
@@ -378,6 +402,7 @@ button {
 
 .web_hosting figure {
   margin: 0;
+  max-width: 100%;
 }
 
 .web_hosting p {
@@ -411,8 +436,8 @@ button {
 /** Services section **/
 
 .Services {
-  margin-top: 90px;
-  padding: 60px 0;
+  margin-top: 30px;
+  padding: 40px 0;
   background: #042d53;
   font-family: Poppins;
 }
@@ -457,7 +482,7 @@ button {
   background-color: transparent;
   border-radius: 20px;
   border: #cecfd7 solid 2px;
-  padding: 40px;
+  padding: 20px;
   transition: ease-in all 0.5s;
   margin-bottom: 30px;
 }
@@ -497,7 +522,35 @@ button {
 
 /** why section **/
 
-.why {
+.wide-60 {
+  padding-top: 100px;
+  padding-bottom: 60px;
+}
+
+#imagen-fluid {
+  max-width: 90%;
+  height: auto;
+}
+
+.h5-xs {
+  margin-bottom: 12px;
+  font-size: 1.25rem;
+  line-height: 1.3;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.parrafo-peq {
+  font-size: 1.0625rem;
+  margin-top: 0;
+margin-bottom: 1rem;
+}
+
+.txt-block {
+  font-family: Poppins;
+}
+
+/* .why {
   margin-top: 90px;
   background: #ffff;
   font-family: Poppins;
@@ -562,14 +615,14 @@ button {
 .bg:hover {
   background: #8308eb;
   color: #fff;
-}
+} */
 
 /** end why section **/
 
 /** contact section **/
 
 .contact {
-  padding-top: 90px;
+  padding-top: 50px;
   font-family: Poppins;
 }
 
@@ -577,7 +630,7 @@ button {
   background: #042d53;
   padding: 55px 55px;
   border-radius: 30px;
-  margin-bottom: -58%;
+  margin-bottom: 70px;
 }
 
 .contact .main_form .contactus {
@@ -645,6 +698,7 @@ button {
   padding-top: 3rem;
   padding-bottom: 0.5rem;
   background-color: #042d53;
+  margin-top: -2px;
 }
 
 .footer .footer-col {
@@ -685,25 +739,4 @@ button {
   margin-left: 1rem;
   margin-right: 0.625rem;
 }
-
-.copyright {
-  padding: 20px 0px;
-  background: #fff;
-}
-
-.copyright p {
-  color: #1e1e1e;
-  font-size: 18px;
-  line-height: 22px;
-  text-align: center;
-}
-
-.copyright a {
-  color: #1e1e1e;
-}
-
-.copyright a:hover {
-  color: #0c0f38;
-}
-
 /** end footer **/
