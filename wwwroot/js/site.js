@@ -10,6 +10,6 @@ function confirmacion_contraseña() {
   if (confirm !== password) {
     var field = document.getElementById("checkconfirm");
     field.innerHTML = "No son iguales";
-    field.style.color = 'white';
+    field.style.color = 'orange';
   }
 }

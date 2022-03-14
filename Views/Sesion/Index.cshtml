@@ -12,32 +12,69 @@
 </div>
 
 
-<div class="bodyre">
-    <div class="cajaRC">
-        @* <img class="centrar" src="~/img/logo-trans-horizontal_1.png" alt="" width="160px" height="50px"> *@
-        <h3>Iniciar sesión</h3>
-        <form method="POST" asp-action="Ingresar">
-            <div>
+@* <img class="centrar" src="~/img/logo-trans-horizontal_1.png" alt="" width="160px" height="50px"> *@
+@* <h3>Iniciar sesión</h3>
+    <form method="POST" asp-action="Ingresar">
+    <div>
 
-                <div>
-                    <label for="correo">Correo</label>
-                    <input type="email" id="correo" name="correo" required />
-                </div>
-
-                <div>
-                    <label for="contraseña">Contraseña</label>
-                    <input type="password" id="contraseña" name="contraseña" required />
-                </div>
-
-                <h5>¿Olvidó su contraseña?</h5>
-
-                <div class="aconfirmar">
-                    <input type="submit" value="Ingresar">
-                </div>
-
-                <h5>Si aún no tiene cuenta, regístrese.</h5>
-
-            </div>
-        </form>
+    <div>
+    <label for="correo">Correo</label>
+    <input type="email" id="correo" name="correo" required />
     </div>
-</div>
+
+    <div>
+    <label for="contraseña">Contraseña</label>
+    <input type="password" id="contraseña" name="contraseña" required />
+    </div>
+
+    <h5>¿Olvidó su contraseña?</h5>
+
+    <div class="aconfirmar">
+    <input type="submit" value="Ingresar">
+    </div>
+
+    <h5>Si aún no tiene cuenta, regístrese.</h5>
+
+    </div>
+    </form> *@
+
+<section class="vh-100">
+    <div class="container py-5 h-100">
+        <div class="row d-flex align-items-center justify-content-center h-100">
+            <div class="col-md-8 col-lg-7 col-xl-6">
+                <img src="img/imagen-inicio.png" class="img-fluid" alt="Phone image">
+            </div>
+            <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+                <form method="POST" asp-action="Ingresar">
+                    <!-- Email input -->
+                    <div class="form-outline mb-4">
+                        <input type="correo" id="form1Example13" class="form-control form-control-lg" required />
+                        <label class="form-label" for="correo">Correo</label>
+                    </div>
+
+                    <!-- Password input -->
+                    <div class="form-outline mb-4">
+                        <input type="password" id="form1Example23" class="form-control form-control-lg" required />
+                        <label class="form-label" for="contraseña">Contraseña</label>
+                    </div>
+
+                    <div class="d-flex justify-content-around align-items-center mb-4">
+                        <!-- Checkbox -->
+                        @* <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="form1Example3" checked />
+                            <label class="form-check-label" for="form1Example3"> Remember me </label>
+                        </div> *@
+                        <a href="#!">¿Olvidó la contraseña?</a>
+                        <a href=""> ¿No tiene cuenta? Regístrese</a>
+                    </div>
+
+                    <!-- Submit button -->
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">Iniciar sesión</button>
+
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

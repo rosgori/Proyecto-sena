@@ -387,7 +387,6 @@ button {
 }
 
 #imagen-descripcion {
-
 }
 
 /** Hosting section **/
@@ -543,7 +542,7 @@ button {
 .parrafo-peq {
   font-size: 1.0625rem;
   margin-top: 0;
-margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 .txt-block {
@@ -758,3 +757,13 @@ margin-bottom: 1rem;
 }
 
 /** end footer **/
+
+/** Para el inicio de sesión **/
+
+.divider:after,
+.divider:before {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #eee;
+}
