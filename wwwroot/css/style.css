@@ -684,6 +684,10 @@ margin-bottom: 1rem;
   position: absolute;
 }
 
+#contenedor-img {
+  width: 250%;
+}
+
 /** end contact section **/
 
 /**********************/
@@ -739,4 +743,18 @@ margin-bottom: 1rem;
   margin-left: 1rem;
   margin-right: 0.625rem;
 }
+
+.li-space-lg li {
+  margin-bottom: 0.375rem;
+}
+
+.p-small {
+  font: 400 0.875rem/1.5rem "Open Sans", sans-serif;
+}
+
+.footer .footer-col.middle {
+  margin-right: 0.75rem;
+  margin-left: 0.75rem;
+}
+
 /** end footer **/
