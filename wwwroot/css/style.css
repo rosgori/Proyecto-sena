@@ -386,7 +386,8 @@ button {
   padding: 0;
 }
 
-#imagen-descripcion {
+.imagen-descripcion {
+  height: auto;
 }
 
 /** Hosting section **/
@@ -684,7 +685,7 @@ button {
 }
 
 #contenedor-img {
-  width: 250%;
+  width: 270%;
 }
 
 /** end contact section **/
