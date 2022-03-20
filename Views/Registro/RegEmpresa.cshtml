@@ -51,14 +51,14 @@
 
                 <div class="form-outline mb-4">
                     <label asp-for="IdCiudad" class="form-label">Ciudad</label>
-                    <select class="form-select" name="IdCiudad" type="text" asp-items="@ViewBag.lista_ciudad"
-                        required></select>
+                    <select class="form-select" name="IdCiudad" type="text" id="ciudad"
+                        asp-items="@ViewBag.lista_ciudad" required></select>
 
                 </div>
 
                 <div class="form-outline mb-4">
                     <label asp-for="DireccionCompañia" class="form-label">Departamento</label>
-                    <select name="IdDepartamento" type="text" asp-items="@ViewBag.lista_departamento"
+                    <select name="IdDepartamento" type="text" id="departamento" asp-items="@ViewBag.lista_departamento"
                         class="form-select" disabled></select>
                 </div>
 
@@ -68,15 +68,16 @@
                         name="contraseña" class="form-control" placeholder="Escriba aquí la contraseña" required />
                 </div>
 
-                <div class="form-outline mb-5">
+                <div class="form-outline mb-4">
                     <label class="form-label">Confirmar contraseña</label>
                     <input type="password" name="confirmar_contraseña" id="confirmar_contraseña"
                         onkeyup="confirmacion_contraseña();" class="form-control"
                         placeholder="Escriba aquí de nuevo la contraseña" required />
+                    <div id='mensaje' class="form-text"></div>
                 </div>
 
                 <!-- Submit button -->
-                <div class="d-grid">
+                <div class="d-grid ">
                     <button type="submit" id="boton" class="btn btn-primary btn-lg btn-block">Registrarse</button>
                 </div>
 
@@ -90,14 +91,41 @@
 <script>
 
     function confirmacion_contraseña() {
-        var password = document.getElementById("contraseña").value;
-        var confirm = document.getElementById("confirmar_contraseña").value;
+        let password = document.getElementById("contraseña").value;
+        let confirm = document.getElementById("confirmar_contraseña").value;
 
         if (confirm !== password) {
-            var field = document.getElementById("checkconfirm");
-            field.innerHTML = "No son iguales";
-            field.style.color = 'orange';
+            let field = document.getElementById("mensaje");
+            field.innerHTML = "No son iguales ambas contraseñas.";
+            field.style.color = 'blue';
+            document.getElementById('boton').disabled = false;
+
+        } else {
+            let field = document.getElementById("mensaje");
+            field.innerHTML = "Son iguales ambas contraseñas.";
+            field.style.color = 'blue';
         }
     }
+
+    let ciudades = document.getElementById('ciudad');
+    ciudades.addEventListener("change", (e) => {
+        console.log(e.target.value);
+
+        if (e.target.value == 1) {
+            document.querySelector('#departamento').options[0].selected = true;
+        }
+
+        if (e.target.value == 2) {
+            document.querySelector('#departamento').options[1].selected = true;
+        }
+
+        if (e.target.value == 3) {
+            document.querySelector('#departamento').options[2].selected = true;
+        }
+
+        if (e.target.value == 4) {
+            document.querySelector('#departamento').options[3].selected = true;
+        }
+    });
 
 </script>
