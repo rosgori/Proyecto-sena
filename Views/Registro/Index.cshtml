@@ -3,12 +3,73 @@
     Layout = "/Views/Shared/_Layout.cshtml";
 }
 
-<div class="bodyre">
-    <div class="cajaRC">
-        <img class="centrar" src="~/img/logo-trans-horizontal_1.png" alt="" width="160px" height="50px">
-        <h4>¿Qué usuario eres?</h4>
-        <div class="aconfirmar"> <a asp-area="" asp-controller="Registro" asp-action="RegCliente">Cliente</a></div>
-        <div class="aconfirmar"><a asp-area="" asp-controller="Registro" asp-action="RegEmpresa">Empresa</a></div>
-        <div class="aconfirmar"><a asp-area="" asp-controller="Registro" asp-action="RegEmpresaOfertante">Empresa ofertante</a></div>
+<div class="container">
+    <div class="row d-flex align-items-center justify-content-center" style="margin-bottom: 100px;">
+        <div class="col-md-12" style="margin-top: 80px;">
+            <div class="titlepage">
+                <h3><strong>¿Qué tipo de usuario eres?</strong></h3>
+            </div>
+        </div>
+
+        <div class="col-md-5 ">
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingOne">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                            Cliente
+                        </button>
+                    </h2>
+                    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+                        data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">Placeholder content for this accordion, which is intended to
+                            demonstrate
+                            the
+                            <a asp-controller="Registro" asp-action="RegCliente">Cliente</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                            Empresa
+                        </button>
+                    </h2>
+                    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
+                        data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">Placeholder content for this accordion, which is intended to
+                            demonstrate
+                            the
+                            <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine
+                            <a asp-controller="Registro" asp-action="RegEmpresa">Empresa</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseThree" aria-expanded="false"
+                            aria-controls="flush-collapseThree">
+                            Empresa ofertante
+                        </button>
+                    </h2>
+                    <div id="flush-collapseThree" class="accordion-collapse collapse"
+                        aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">Placeholder content for this accordion, which is intended to
+                            demonstrate
+                            the
+                            <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more
+                            exciting
+                            happening here in terms of content, but just filling up the space to make it look, at least
+                            at
+                            first
+                            <a asp-controller="Registro" asp-action="RegEmpresaOfertante">Empresa
+                                ofertante</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

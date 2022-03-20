@@ -47,13 +47,15 @@
             <form method="POST" asp-action="Ingresar">
                 <!-- Email input -->
                 <div class="form-outline mb-4">
-                    <input type="correo" id="form1Example13" class="form-control form-control-lg" required />
+                    <input type="correo" id="form1Example13" class="form-control form-control-lg"
+                        placeholder="ejemplo@ejemplo.com" required />
                     <label class="form-label" for="correo">Correo</label>
                 </div>
 
                 <!-- Password input -->
                 <div class="form-outline mb-4">
-                    <input type="password" id="form1Example23" class="form-control form-control-lg" required />
+                    <input type="password" id="form1Example23" class="form-control form-control-lg"
+                        placeholder="micontraseña" required />
                     <label class="form-label" for="contraseña">Contraseña</label>
                 </div>
 
@@ -64,12 +66,12 @@
                         <label class="form-check-label" for="form1Example3"> Remember me </label>
                         </div> *@
                     <a href="#!">¿Olvidó la contraseña?</a>
-                    <a href=""> ¿No tiene cuenta? Regístrese</a>
+                    <a asp-controller="Registro" asp-action="Index">¿No tiene cuenta? Regístrese</a>
                 </div>
 
                 <!-- Submit button -->
                 <div class="d-grid">
-                    <button type="submit" class="btn  btn-primary btn-lg btn-block">Iniciar
+                    <button type="submit" id="boton" class="btn btn-primary btn-lg btn-block">Iniciar
                         sesión</button>
                 </div>
 
