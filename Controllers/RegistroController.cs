@@ -191,6 +191,8 @@ namespace Proyecto_sena.Controllers
             return View("CrearCliente");
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult CrearCompañiaOfertante(IFormCollection formCollection)
         {
 

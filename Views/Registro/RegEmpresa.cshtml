@@ -98,12 +98,13 @@
             let field = document.getElementById("mensaje");
             field.innerHTML = "No son iguales ambas contraseñas.";
             field.style.color = 'blue';
-            document.getElementById('boton').disabled = false;
+            document.getElementById('boton').disabled = true;
 
         } else {
             let field = document.getElementById("mensaje");
             field.innerHTML = "Son iguales ambas contraseñas.";
             field.style.color = 'blue';
+            document.getElementById('boton').disabled = false;
         }
     }
 
