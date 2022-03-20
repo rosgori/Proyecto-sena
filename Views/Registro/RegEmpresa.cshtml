@@ -5,65 +5,99 @@
     Layout = "/Views/Shared/_Layout.cshtml";
 }
 
-<div class="bodyre">
-    <div class="cajaRC">
-        <img class="centrar" src="/img/logo-trans-horizontal_1.png" alt="" width="160px" height="50px">
-        <h3>Registro Empresa</h3>
-        <form method="POST" asp-action="CrearCompañiaCliente">
+<div class="container py-5 h-100">
+    <div class="row d-flex align-items-center justify-content-center h-100">
 
-            <input type="hidden" id="IdClienteCompañia" name="IdClienteCompañia" />
-            <div>
-                <label asp-for="NombreCompañia">Nombre de la compañía</label>
-                <input asp-for="NombreCompañia" type="text" name="NombreCompañia" required />
+        <div class="col-md-12" style="margin-top: 40px;">
+            <div class="titlepage">
+                <h3><strong>Registro de empresa</strong></h3>
             </div>
-            <div>
-                <label asp-for="TelefonoCompañia">Teléfono</label>
-                <input asp-for="TelefonoCompañia" type="text" class="sinborde" name="TelefonoCompañia" required />
-            </div>
+        </div>
 
-            <div>
-                <label asp-for="CorreoElectronicoCompañia">Correo</label>
-                <input asp-for="CorreoElectronicoCompañia" type="email" name="CorreoElectronicoCompañia" required />
-            </div>
+        <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
 
-            <div>
-                <label asp-for="DireccionCompañia">Dirección</label>
-                <input asp-for="DireccionCompañia" type="text" name="DireccionCompañia" required />
-            </div>
+            <form method="POST" asp-action="CrearCompañiaCliente">
 
-            <div>
-                <label asp-for="NitCompañia">NIT</label>
-                <input asp-for="NitCompañia" type="text" name="NitCompañia" required />
-            </div>
+                <input type="hidden" id="IdClienteCompañia" name="IdClienteCompañia" />
 
-            <div>
-                <label asp-for="IdCiudad">Ciudad</label>
-                <select name="IdCiudad" type="text" asp-items="@ViewBag.lista_ciudad" required></select>
+                <div class="form-outline mb-4">
+                    <label asp-for="NombreCompañia" class="form-label">Nombre de la compañía</label>
+                    <input asp-for="NombreCompañia" type="text" name="NombreCompañia" class="form-control"
+                        placeholder="Escriba aquí en nombre de la compañía" required />
+                </div>
+                <div class="form-outline mb-4">
+                    <label asp-for="TelefonoCompañia" class="form-label">Teléfono</label>
+                    <input asp-for="TelefonoCompañia" type="text" name="TelefonoCompañia" class="form-control"
+                        placeholder="Escriba aquí el teléfono de la compañía" required />
+                </div>
 
-            </div>
+                <div class="form-outline mb-4">
+                    <label asp-for="CorreoElectronicoCompañia" class="form-label">Correo</label>
+                    <input asp-for="CorreoElectronicoCompañia" type="email" name="CorreoElectronicoCompañia"
+                        class="form-control" placeholder="Escriba aquí el correo de la compañía" required />
+                </div>
 
-            <div>
-                <label asp-for="DireccionCompañia">Departamento</label>
-                <select name="IdDepartamento" type="text" asp-items="@ViewBag.lista_departamento" required ></select>
-            </div>
+                <div class="form-outline mb-4">
+                    <label asp-for="DireccionCompañia" class="form-label">Dirección</label>
+                    <input asp-for="DireccionCompañia" type="text" name="DireccionCompañia" class="form-control"
+                        placeholder="Escriba aquí la dirección de la compañía" required />
+                </div>
 
-            <div>
-                <label>Contraseña</label>
-                <input type="password" name="contraseña" id="contraseña" onkeyup="confirmacion_contraseña();"
-                    name="contraseña" required />
-                <div id="checkconfirm"></div>
-            </div>
+                <div class="form-outline mb-4">
+                    <label asp-for="NitCompañia" class="form-label">NIT</label>
+                    <input asp-for="NitCompañia" type="text" name="NitCompañia" class="form-control"
+                        placeholder="Escriba aquí el NIT de la compañía" required />
+                </div>
 
-            <div>
-                <label>Confirmar contraseña</label>
-                <input type="password" name="confirmar_contraseña" id="confirmar_contraseña"
-                    onkeyup="confirmacion_contraseña();" required />
-                <span id="checkconfirm"></span>
-            </div>
-            <div class="centrarbotonregistro">
-                <input type="submit" value="Registrarse">
-            </div>
-        </form>
+                <div class="form-outline mb-4">
+                    <label asp-for="IdCiudad" class="form-label">Ciudad</label>
+                    <select class="form-select" name="IdCiudad" type="text" asp-items="@ViewBag.lista_ciudad"
+                        required></select>
 
+                </div>
+
+                <div class="form-outline mb-4">
+                    <label asp-for="DireccionCompañia" class="form-label">Departamento</label>
+                    <select name="IdDepartamento" type="text" asp-items="@ViewBag.lista_departamento"
+                        class="form-select" disabled></select>
+                </div>
+
+                <div class="form-outline mb-4">
+                    <label class="form-label">Contraseña</label>
+                    <input type="password" name="contraseña" id="contraseña" onkeyup="confirmacion_contraseña();"
+                        name="contraseña" class="form-control" placeholder="Escriba aquí la contraseña" required />
+                </div>
+
+                <div class="form-outline mb-5">
+                    <label class="form-label">Confirmar contraseña</label>
+                    <input type="password" name="confirmar_contraseña" id="confirmar_contraseña"
+                        onkeyup="confirmacion_contraseña();" class="form-control"
+                        placeholder="Escriba aquí de nuevo la contraseña" required />
+                </div>
+
+                <!-- Submit button -->
+                <div class="d-grid">
+                    <button type="submit" id="boton" class="btn btn-primary btn-lg btn-block">Registrarse</button>
+                </div>
+
+            </form>
+        </div>
     </div>
 </div>
+
+
+
+<script>
+
+    function confirmacion_contraseña() {
+        var password = document.getElementById("contraseña").value;
+        var confirm = document.getElementById("confirmar_contraseña").value;
+
+        if (confirm !== password) {
+            var field = document.getElementById("checkconfirm");
+            field.innerHTML = "No son iguales";
+            field.style.color = 'orange';
+        }
+    }
+
+</script>

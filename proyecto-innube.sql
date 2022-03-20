@@ -203,7 +203,7 @@ insert into Departamento_compañia (nombre_departamento)
 values ('Antioquia'),
 ('Valle del Cauca'),
 ('Santander'),
-('Barranquilla');
+('Atlántico');
 
 insert into Servicio_ofrecido (`id_servicio`, `nombre_servicio`, `precio_servicio`, `descripcion`) 
 values ('SO45834545', 'Servicio 1', '34500', 'Es el primer servicios'),
