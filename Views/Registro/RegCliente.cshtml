@@ -5,43 +5,82 @@
     Layout = "/Views/Shared/_Layout.cshtml";
 }
 
-<div class="bodyre">
-    <div class="cajaRC">
-        <img class="centrar" src="~/img/logo-trans-horizontal_1.png" alt="" width="160px" height="50px">
-        <h3>Registro Cliente</h3>
-        <form method="POST" asp-action="CrearCliente">
+<div class="container py-5 h-100">
+    <div class="row d-flex align-items-center justify-content-center h-100">
 
-            <input type="hidden" id="IdCliente" name="IdCliente" />
-            <div>
-                <label asp-for="NombreCliente">Nombre</label>
-                <input asp-for="NombreCliente" type="text" name="nombre" required />
+        <div class="col-md-12" style="margin-top: 40px;">
+            <div class="titlepage">
+                <h3><strong>Registro de cliente natural</strong></h3>
             </div>
-            <div>
-                <label asp-for="ApellidoCliente">Apellido</label>
-                <input asp-for="ApellidoCliente" type="text" class="sinborde" name="apellido" required />
-            </div>
+        </div>
 
-            <div>
-                <label asp-for="CorreoElectronicoCliente">Correo</label>
-                <input asp-for="CorreoElectronicoCliente" type="email" name="correo" required />
-            </div>
+        <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
 
-            <div>
-                <label>Contraseña</label>
-                <input type="password" name="contraseña" id="contraseña" onkeyup="confirmacion_contraseña();"
-                    name="contraseña" required />
-                <span id="checkconfirm"></span>
-            </div>
+            <form method="POST" asp-action="CrearCliente">
+                <input type="hidden" id="IdCliente" name="IdCliente" />
 
-            <div>
-                <label>Confirmar contraseña</label>
-                <input type="password" name="confirmar_contraseña" id="confirmar_contraseña"
-                    onkeyup="confirmacion_contraseña();" required />
-                <span id="checkconfirm"></span>
-            </div>
-            <div class="centrarbotonregistro">
-                <input type="submit" value="Registrarse">
-            </div>
-        </form>
+                <div class="form-outline mb-4">
+                    <label asp-for="NombreCliente" class="form-label">Nombre</label>
+                    <input asp-for="NombreCliente" type="text" name="nombre" class="form-control"
+                        placeholder="Escriba aquí el nombre" required />
+                </div>
+
+                <div class="form-outline mb-4">
+                    <label asp-for="ApellidoCliente" class="form-label">Apellido</label>
+                    <input asp-for="ApellidoCliente" type="text" name="apellido" class="form-control"
+                        placeholder="Escriba aquí el correo" required />
+                </div>
+
+                <div class="form-outline mb-4">
+                    <label asp-for="CorreoElectronicoCliente" class="form-label">Correo</label>
+                    <input asp-for="CorreoElectronicoCliente" type="email" name="correo" class="form-control"
+                        placeholder="Escriba aquí el correo" required />
+                </div>
+
+                <div class="form-outline mb-4">
+                    <label class="form-label">Contraseña</label>
+                    <input type="password" name="contraseña" id="contraseña" onkeyup="confirmacion_contraseña();"
+                        name="contraseña" class="form-control" placeholder="Escriba aquí la contraseña" required />
+                </div>
+
+                <div class="form-outline mb-4">
+                    <label class="form-label">Confirmar contraseña</label>
+                    <input type="password" name="confirmar_contraseña" id="confirmar_contraseña"
+                        onkeyup="confirmacion_contraseña();" class="form-control"
+                        placeholder="Escriba aquí de nuevo la contraseña" required />
+                    <div id='mensaje' class="form-text"></div>
+                </div>
+
+                <!-- Submit button -->
+                <div class="d-grid ">
+                    <button type="submit" id="boton" class="btn btn-primary btn-lg btn-block">Registrarse</button>
+                </div>
+
+            </form>
+        </div>
     </div>
 </div>
+
+
+
+<script>
+
+    function confirmacion_contraseña() {
+        let password = document.getElementById("contraseña").value;
+        let confirm = document.getElementById("confirmar_contraseña").value;
+
+        if (confirm !== password) {
+            let field = document.getElementById("mensaje");
+            field.innerHTML = "No son iguales ambas contraseñas.";
+            field.style.color = 'blue';
+            document.getElementById('boton').disabled = true;
+
+        } else {
+            let field = document.getElementById("mensaje");
+            field.innerHTML = "Son iguales ambas contraseñas.";
+            field.style.color = 'blue';
+            document.getElementById('boton').disabled = false;
+        }
+    }
+
+</script>
