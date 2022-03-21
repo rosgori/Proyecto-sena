@@ -86,8 +86,7 @@ namespace Proyecto_sena.Controllers
                 return RedirectToAction("Index", "TableroC");
             }
 
-
-            TempData["Error"] = "El usuario o contraseña no son válidos.";
+            TempData["Error"] = "El usuario o la contraseña no son válidos.";
             return View("Index");
 
 
