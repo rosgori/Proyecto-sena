@@ -85,12 +85,14 @@
             console.log("Tiene la clase que quiero");
             console.log(e.target.dataset.id);
             conjunto_ids.add(e.target.dataset.id);
+            e.target.innerText = "Seleccionado";
         }
 
         if (!e.target.classList.contains("active") && e.target.classList.contains("btn")) {
             console.log("No está la clase");
             console.log(e.target.dataset.id);
             conjunto_ids.delete(e.target.dataset.id);
+            e.target.innerText = "Seleccionar";
         }
 
     });
