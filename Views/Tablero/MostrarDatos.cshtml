@@ -2,31 +2,27 @@
     ViewData["Title"] = "Tablero";
     Layout = "~/Views/Shared/_Layout-02.cshtml";
 }
-<section id="dashboard">
-    <article class="menu">
-        <ul>
-            <li class="item"><a href="">Usuarios</a></li>
-            <li class="item"><a asp-controller="Tablero" asp-action="Buscar">Búsqueda</a></li>
-            <li class="item"><a asp-controller="Tablero" asp-action="MostrarDatos">Mostrar datos</a></li>
-            <li class="item"><a asp-controller="Tablero" asp-action="Editar">Editar</a></li>
-            <li class="item"><a href="">Usuarios</a></li>
-        </ul>
-    </article>
-    <article class="contenido">
 
-        <span>
-            Nombre de la persona: @ViewBag.persona.NombreCliente </br>
-        </span>
+<h2 class="my-3">Información sobre el usuario</h2>
 
-        <span>
-            Apellido de la persona: @ViewBag.persona.ApellidoCliente </br>
-        </span>
+<div class="card">
+    <div class="card-header"> Se muestran todos los datos del usuario
+    </div>
+    <div class="card-body">
+        <div class="card-text my-3">
+            <h4>Nombre de la persona</h4> @ViewBag.persona.NombreCliente
+        </div>
 
-        <span>
-            Correo de la persona: @ViewBag.persona.CorreoElectronicoCliente </br>
-        </span>
+        <div class="card-text my-3">
+            <h4>Apellido de la persona</h4> @ViewBag.persona.ApellidoCliente
+        </div>
 
-        <div>Haga click aquí para cambiar la contraseña</div>
+        <div class="card-text my-3">
+            <h4>Correo de la persona</h4> @ViewBag.persona.CorreoElectronicoCliente
+        </div>
 
-    </article>
-</section>
+        <div class="my-3">Haga click <a href="#" class="card-link">aquí</a> para cambiar la contraseña</div>
+        <div class="my-3">Haga click <a asp-controller="Tablero" asp-action="Editar" class="card-link">aquí</a> para
+            editar los datos</div>
+    </div>
+</div>

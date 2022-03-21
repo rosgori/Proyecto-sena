@@ -2,60 +2,39 @@
 
 @{
     ViewData["Title"] = "Tablero";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_Layout-02.cshtml";
 }
 
+<h2 class="my-3">Edición de usuario</h2>
 
-<nav>
-    @* <div class="logo">
-        <img src="~/img/logo-trans-horizontal_1.png" width="180" height="50">
-        </div> *@
-    <div class="sesion">
-        <img src="/img/usuario.jpeg">
-        <span>
-            <strong>Bienvenido,</strong><br>usuario
-            <i class="fas fa-sign-out-alt"></i>
-        </span>
+<div class="card">
+    <div class="card-header">
+        Por favor edite cualquiera de los campos
     </div>
-</nav>
 
-<section id="dashboard">
-    <article class="menu">
-        <ul>
-            <li class="item"><a href="">Usuarios</a></li>
-            <li class="item"><a asp-controller="Tablero" asp-action="Buscar">Búsqueda</a></li>
-            <li class="item"><a asp-controller="Tablero" asp-action="MostrarDatos">Mostrar datos</a></li>
-            <li class="item"><a asp-controller="Tablero" asp-action="Editar">Editar</a></li>
-            <li class="item"><a href="">Usuarios</a></li>
-        </ul>
-    </article>
-    <article class="contenido">
-        <span>
-            Si no desea editar un campo, por favor déjelo en blanco.
-        </span>
-        <br>
-
+    <div class="card-body">
         <form method="POST" asp-action="EditarCliente">
 
             <input type="hidden" id="IdCliente" name="IdCliente" />
-            <div>
-                <label asp-for="NombreCliente">Nombre</label>
-                <input asp-for="NombreCliente" type="text" name="nombre" />
+            <div class="my-3">
+                <label asp-for="NombreCliente" class="form-label">Nombre</label>
+
+                <input asp-for="NombreCliente" class="form-control col-sm-7" type="text" name="nombre"
+                value="@ViewBag.persona.NombreCliente" />
             </div>
-            <div>
-                <label asp-for="ApellidoCliente">Apellido</label>
-                <input asp-for="ApellidoCliente" type="text" class="sinborde" name="apellido" />
+            <div class="my-3">
+                <label asp-for="ApellidoCliente" class="form-label">Apellido</label>
+                <input asp-for="ApellidoCliente" class="form-control" type="text" class="sinborde" name="apellido" 
+                value="@ViewBag.persona.ApellidoCliente"/>
             </div>
 
-            <div>
-                <label asp-for="CorreoElectronicoCliente">Correo</label>
-                <input asp-for="CorreoElectronicoCliente" type="email" name="correo" />
+            <div class="my-3">
+                <label asp-for="CorreoElectronicoCliente" class="form-label">Correo</label>
+                <input asp-for="CorreoElectronicoCliente" class="form-control" type="email" name="correo" 
+                value="@ViewBag.persona.CorreoElectronicoCliente" />
             </div>
 
-            <div class="centrarbotonregistro">
-                <input type="submit" value="Editar">
-            </div>
+            <button type="submit" class="btn btn-primary my-3">Editar</button>
         </form>
-
-    </article>
-</section>
+    </div>
+</div>
