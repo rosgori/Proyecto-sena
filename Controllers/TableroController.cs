@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 
 using System.Linq;
+using System.Text;
 using System.Text.Json;
 // using System.Text.Json.Serialization;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Proyecto_sena.Models;
+using Proyecto_sena.Models.DAOS;
 
 namespace Proyecto_sena.Controllers
 {
@@ -147,6 +149,36 @@ namespace Proyecto_sena.Controllers
             ViewBag.lista = lista_datos;
 
             return View();
+        }
+
+        [Authorize]
+        public IActionResult Contrasena()
+        {
+            return View();
+        }
+
+        [Authorize]
+        [HttpPost]
+        public IActionResult EditarContraseña(IFormCollection formCollection)
+        {
+            string contraseña = formCollection["contraseña"];
+            
+            var correo_original = User.Identity.Name;
+            var persona = base_datos.Clientes.FirstOrDefault(u => u.CorreoElectronicoCliente == correo_original);
+
+            var contraseña_datos = base_datos.ContraseñaClientes.FirstOrDefault(u => u.IdContraseñaCliente == persona.IdContraseñaCliente);
+
+            string salt = ContraseñaClienteDAO.RandomString(10);
+            byte[] bytes_contraseña = Encoding.UTF8.GetBytes(contraseña);
+            byte[] bytes_salt = Encoding.UTF8.GetBytes(salt);
+
+            var parte_encriptada = ContraseñaClienteDAO.GenerateSaltedHash(bytes_contraseña, bytes_salt);
+
+            contraseña_datos.ParteEncriptada = Convert.ToBase64String(parte_encriptada);
+            contraseña_datos.Salt = salt;
+            base_datos.SaveChanges();
+
+            return RedirectToAction("MostrarDatos");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -3,11 +3,11 @@
     Layout = "~/Views/Shared/_Layout-02.cshtml";
 }
 
+<h2>Búsqueda de servicios en la nube</h2>
+
 <div class="card flex-fill w-100">
-    <div class="card-header">
-        <h2 class="card-title mb-0">Búsqueda de servicios en la nube</h2>
-    </div>
     <div class="card-body">
+        <p class="card-text"> Aquí puede encontrar los diferentes servicios ofrecidos por diferentes compañías. </p>
         <table class="table" id="mitabla">
             <thead>
                 <tr>
@@ -33,8 +33,6 @@
                             <button type="button" class="btn btn-outline-secondary boton-sel" data-id=@ViewBag.lista[i]
                             data-bs-toggle="button" autocomplete="off">
                                 Seleccionar</button>
-
-
                         </td>
                     </tr>
                 }
@@ -52,10 +50,10 @@
 
 <script>
     const dataTable = new simpleDatatables.DataTable("#mitabla", options = {
-        labels : {
+        labels: {
             placeholder: "Buscar...", perPage: "{select} entradas por página",
             noRows: "No entradas encontradas", noResults: "Ningún resultado encontrado",
-            info: "Mostrando {start} a {end} de {rows} entries"
+            info: "Mostrando {start} a {end} de {rows} entradas"
         }
     });
 

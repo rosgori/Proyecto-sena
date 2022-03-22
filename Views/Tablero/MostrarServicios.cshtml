@@ -1,34 +1,14 @@
 @{
     ViewData["Title"] = "Mostrar servicios";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_Layout-02.cshtml";
 }
 
-
-<nav>
-    @* <div class="logo">
-        <img src="~/img/logo-trans-horizontal_1.png" width="180" height="50">
-        </div> *@
-    <div class="sesion">
-        <img src="/img/usuario.jpeg">
-        <span>
-            <strong>Bienvenido,</strong><br>usuario
-            <i class="fas fa-sign-out-alt"></i>
-        </span>
+<div class="card flex-fill w-100">
+    <div class="card-header">
+        <h2 class="card-title mb-0">Resultado</h2>
     </div>
-</nav>
-
-<section id="dashboard">
-    <article class="menu">
-        <ul>
-            <li class="item"><a href="">Usuarios</a></li>
-            <li class="item"><a asp-controller="Tablero" asp-action="Buscar">Búsqueda</a></li>
-            <li class="item"><a asp-controller="Tablero" asp-action="MostrarDatos">Mostrar datos</a></li>
-            <li class="item"><a asp-controller="Tablero" asp-action="Editar">Editar</a></li>
-            <li class="item"><a href="">Usuarios</a></li>
-        </ul>
-    </article>
-    <article class="contenido">
-        <table id="mitabla">
+    <div class="card-body">
+        <table id="mitabla" class="table">
             <thead>
                 <tr>
                     <th class="id_producto">Id producto</th>
@@ -54,14 +34,25 @@
                 }
             </tbody>
 
-        </table>
-    </article>
-</section>
+        </table> 
+        <a id="envio-boton" asp-controller="Tablero" asp-action="MostrarServicios"
+            class="btn btn-primary">Enviar
+            algo</a>
+
+    </div>
+</div>
+
 
 
 <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest"></script>
 
 <script>
-    const dataTable = new simpleDatatables.DataTable("#mitabla");
+    const dataTable = new simpleDatatables.DataTable("#mitabla", options = {
+        labels: {
+            placeholder: "Buscar...", perPage: "{select} entradas por página",
+            noRows: "No entradas encontradas", noResults: "Ningún resultado encontrado",
+            info: "Mostrando {start} a {end} de {rows} entradas"
+        }
+    });
 
 </script>
