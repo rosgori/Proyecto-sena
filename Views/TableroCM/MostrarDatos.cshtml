@@ -1,55 +1,42 @@
 @{
     ViewData["Title"] = "Tablero";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_Layout-03.cshtml";
 }
 
+<h2 class="my-3">Información sobre el usuario</h2>
 
-<nav>
-    @* <div class="logo">
-        <img src="~/img/logo-trans-horizontal_1.png" width="180" height="50">
-        </div> *@
-    <div class="sesion">
-        <img src="/img/usuario.jpeg">
-        <span>
-            <strong>Bienvenido,</strong><br>usuario
-            <i class="fas fa-sign-out-alt"></i>
-        </span>
+<div class="card">
+    <div class="card-header"> Se muestran todos los datos del usuario
     </div>
-</nav>
+    <div class="card-body">
+        <div class="card-text my-3">
+            <h4>Nombre de la compañía</h4>
+            @ViewBag.compañia.NombreCompañia
+        </div>
 
-<section id="dashboard">
-    <article class="menu">
-        <ul>
-            <li class="item"><a href="">Compañía</a></li>
-            <li class="item"><a asp-controller="TableroCM" asp-action="Buscar">Búsqueda</a></li>
-            <li class="item"><a asp-controller="TableroCM" asp-action="MostrarDatos">Mostrar datos</a></li>
-            <li class="item"><a asp-controller="TableroCM" asp-action="Editar">Editar</a></li>
-            <li class="item"><a href="">Usuarios</a></li>
-        </ul>
-    </article>
-    <article class="contenido">
+        <div class="card-text my-3">
+            <h4>Teléfono de la compañía</h4>
+            @ViewBag.compañia.TelefonoCompañia
+        </div>
 
-        <span>
-            Nombre de la compañía: @ViewBag.compañia.NombreCompañia </br>
-        </span>
+        <div class="card-text my-3">
+            <h4>Correo de la compañía</h4>
+            @ViewBag.compañia.CorreoElectronicoCompañia
+        </div>
 
-        <span>
-            Teléfono de la compañía: @ViewBag.compañia.TelefonoCompañia </br>
-        </span>
+        <div class="card-text my-3">
+            <h4>NIT de la compañía</h4>
+            @ViewBag.compañia.NitCompañia
+        </div>
 
-        <span>
-            Correo de la compañía: @ViewBag.compañia.CorreoElectronicoCompañia </br>
-        </span>
-        
-        <span>
-            NIT de la compañía: @ViewBag.compañia.NitCompañia </br>
-        </span>
+        <div class="card-text my-3">
+            <h4>Dirección de la compañía</h4>
+            @ViewBag.compañia.NitCompañia
+        </div>
 
-        <span>
-            Dirección de la compañía: @ViewBag.compañia.NitCompañia </br>
-        </span>
-
-        <div>Haga click aquí para cambiar la contraseña</div>
-
-    </article>
-</section>
+        <div class="my-3">Haga click <a asp-controller="Tablero" asp-action="Contrasena" class="card-link">aquí</a> para
+            cambiar la contraseña</div>
+        <div class="my-3">Haga click <a asp-controller="Tablero" asp-action="Editar" class="card-link">aquí</a> para
+            editar los datos</div>
+    </div>
+</div>

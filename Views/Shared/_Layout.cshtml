@@ -73,9 +73,24 @@
                                     <li class="nav-item">
                                         <a class="nav-link" href="#">Contáctenos</a>
                                     </li>
-                                    <li class="nav-item active">
-                                        <a class="nav-link" asp-controller="Sesion" asp-action="Index">Iniciar sesión</a>
-                                    </li>
+                                    @if (!User.Identity.IsAuthenticated)
+                                    {
+                                        <li class="nav-item active">
+                                            <a class="nav-link" asp-controller="Sesion" asp-action="Index">Iniciar
+                                                sesión</a>
+                                        </li>
+                                    }
+                                    @if (User.Identity.IsAuthenticated)
+                                    {
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Tablero</a>
+                                        </li>
+                                        <li class="nav-item active">
+                                            <a class="nav-link" asp-controller="Sesion" asp-action="SalirSesion">Cerrar
+                                                sesión</a>
+                                        </li>
+                                    }
+
                                 </ul>
                             </div>
                         </nav>
@@ -107,14 +122,14 @@
                 <div class="col-md-4">
 
                     <div class="footer-col first">
-                        <div >
+                        <div>
                             <figure><img src="~/img/logo-h-blanco.png" alt="" width="250px" />
                             </figure>
                         </div>
                         <p class="p-small">
                             La plataforma para saber sobre los servicios de la nube
                         </p>
-                        
+
                     </div>
                 </div>
                 <!-- end of col -->
