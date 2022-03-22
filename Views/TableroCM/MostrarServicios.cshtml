@@ -1,0 +1,58 @@
+@{
+    ViewData["Title"] = "Mostrar servicios";
+    Layout = "~/Views/Shared/_Layout-02.cshtml";
+}
+
+<div class="card flex-fill w-100">
+    <div class="card-header">
+        <h2 class="card-title mb-0">Resultado</h2>
+    </div>
+    <div class="card-body">
+        <table id="mitabla" class="table">
+            <thead>
+                <tr>
+                    <th class="id_producto">Id producto</th>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+
+                    <th></th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < @ViewBag.longitud; i = i + 3)
+                {
+                    <tr>
+                        <td class="id_producto"> @ViewBag.lista[i]</td>
+                        <td> @ViewBag.lista[i + 1]</td>
+                        <td> @ViewBag.lista[i +2]</td>
+
+                        <td>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+        </table> 
+        <a id="envio-boton" asp-controller="TableroCM" asp-action="MostrarServicios"
+            class="btn btn-primary">Enviar
+            algo</a>
+
+    </div>
+</div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest"></script>
+
+<script>
+    const dataTable = new simpleDatatables.DataTable("#mitabla", options = {
+        labels: {
+            placeholder: "Buscar...", perPage: "{select} entradas por página",
+            noRows: "No entradas encontradas", noResults: "Ningún resultado encontrado",
+            info: "Mostrando {start} a {end} de {rows} entradas"
+        }
+    });
+
+</script>

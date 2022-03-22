@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -103,7 +104,7 @@ namespace Proyecto_sena.Controllers
         public IActionResult EditarContraseña(IFormCollection formCollection)
         {
             string contraseña = formCollection["contraseña"];
-            
+
             var correo_original = User.Identity.Name;
             var persona = base_datos.ClienteCompañia.FirstOrDefault(u => u.CorreoElectronicoCompañia == correo_original);
 
@@ -120,6 +121,73 @@ namespace Proyecto_sena.Controllers
             base_datos.SaveChanges();
 
             return RedirectToAction("MostrarDatos");
+        }
+
+        [Authorize]
+        public IActionResult Buscar()
+        {
+            List<String> lista_datos = new List<string>();
+
+            var oferta_servicios = base_datos.OfertaServicios.ToList();
+            foreach (var ofer in oferta_servicios)
+            {
+                var servicio = base_datos.ServicioOfrecidos.FirstOrDefault(u => u.IdServicio == ofer.IdServicio);
+                lista_datos.Add(servicio.IdServicio);
+                lista_datos.Add(servicio.NombreServicio);
+                lista_datos.Add(servicio.PrecioServicio.ToString());
+                var comp = base_datos.Compañia.FirstOrDefault(u => u.IdCompañia == ofer.IdCompañia);
+                lista_datos.Add(comp.NombreCompañia);
+
+            }
+
+            ViewBag.longitud = lista_datos.Count();
+            ViewBag.lista = lista_datos;
+            return View();
+        }
+
+        [Authorize]
+        public IActionResult CogerDatos([FromBody] JsonDocument values)
+        {
+            List<string> listas_ids = new List<string>();
+
+            Console.WriteLine("Probando");
+            JsonElement a = values.RootElement;
+            JsonElement ids = a.GetProperty("ids");
+            foreach (var c in ids.EnumerateArray())
+            {
+                if (c.TryGetProperty("id", out JsonElement valor_id))
+                {
+                    listas_ids.Add(valor_id.GetString());
+                }
+            }
+            TempData["lista_ids"] = listas_ids;
+
+            return RedirectToAction("MostrarServicios", new { ll = listas_ids });
+        }
+
+        [Authorize]
+        [HttpGet]
+        // public IActionResult MostrarServicios([FromBody] JsonDocument values)
+        public IActionResult MostrarServicios(List<string> ll)
+        {
+            List<String> lista_datos = new List<string>();
+            // var ids = CogerDatos(values);
+            var ids = ll;
+
+            IEnumerable<string> ids2 = ids as IEnumerable<string>;
+
+            foreach (var item in ids)
+            {
+                var servicio = base_datos.ServicioOfrecidos.FirstOrDefault(u => u.IdServicio.Equals(item));
+                lista_datos.Add(servicio.IdServicio);
+                lista_datos.Add(servicio.NombreServicio);
+                lista_datos.Add(servicio.PrecioServicio.ToString());
+            }
+
+            ViewBag.longitud = lista_datos.Count();
+            ViewBag.lista = lista_datos;
+
+            return View();
         }
     }
 }
