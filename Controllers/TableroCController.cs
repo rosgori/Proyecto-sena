@@ -41,6 +41,10 @@ namespace Proyecto_sena.Controllers
         [Authorize]
         public IActionResult Editar()
         {
+            var correo = User.Identity.Name;
+            var compañia = base_datos.Compañia.FirstOrDefault(u => u.CorreoElectronicoCompañia == correo);
+
+            ViewBag.compañia = compañia;
             return View();
         }
 
@@ -107,7 +111,7 @@ namespace Proyecto_sena.Controllers
 
             ViewBag.longitud = lista_datos.Count();
             ViewBag.lista = lista_datos;
-            
+
             return View();
         }
 
