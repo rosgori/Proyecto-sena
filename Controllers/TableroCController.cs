@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -163,6 +164,36 @@ namespace Proyecto_sena.Controllers
 
             return RedirectToAction("ListarServicios");
 
+        }
+
+        [Authorize]
+        public IActionResult Contrasena()
+        {
+            return View();
+        }
+
+        [Authorize]
+        [HttpPost]
+        public IActionResult EditarContraseña(IFormCollection formCollection)
+        {
+            string contraseña = formCollection["contraseña"];
+
+            var correo_original = User.Identity.Name;
+            var persona = base_datos.Compañia.FirstOrDefault(u => u.CorreoElectronicoCompañia == correo_original);
+
+            var contraseña_datos = base_datos.ContraseñaCompañia.FirstOrDefault(u => u.IdContraseñaCompañia == persona.IdContraseñaCompañia);
+
+            string salt = ContraseñaCompañiumDAO.RandomString(10);
+            byte[] bytes_contraseña = Encoding.UTF8.GetBytes(contraseña);
+            byte[] bytes_salt = Encoding.UTF8.GetBytes(salt);
+
+            var parte_encriptada = ContraseñaCompañiumDAO.GenerateSaltedHash(bytes_contraseña, bytes_salt);
+
+            contraseña_datos.ParteEncriptada = Convert.ToBase64String(parte_encriptada);
+            contraseña_datos.Salt = salt;
+            base_datos.SaveChanges();
+
+            return RedirectToAction("MostrarDatos");
         }
     }
 }
