@@ -31,12 +31,14 @@
                                 <div class="col-3">
                                     <form asp-controller="TableroC" asp-action="EditarS" method="post">
                                         <button role="button" class="btn btn-secondary mx-3"
-                                    value=@ViewBag.lista[i] name="id_producto"> Editar</button>
+                                    value="@ViewBag.lista[i]" name="id_producto"> Editar</button>
                                     </form>
                                 </div>
                                 <div class="col-3">
-                                    <button type="button" class="btn btn-warning mx-3" data-id=@ViewBag.lista[i]>
-                                        Eliminar</button>
+                                    <form asp-controller="TableroC" asp-action="EliminarServicio" method="post">
+                                        <button role="button" class="btn btn-danger mx-3" name="id_producto" 
+                                        value="@ViewBag.lista[i]" onclick="return confirm('¿Está seguro de eliminar este registro?')">Eliminar</button>
+                                    </form>
                                 </div>
                             </div>
 

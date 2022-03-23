@@ -226,5 +226,19 @@ namespace Proyecto_sena.Controllers
 
             return RedirectToAction("ListarServicios");
         }
+
+        [Authorize]
+        [HttpPost]
+        public IActionResult EliminarServicio(IFormCollection coleccion)
+        {
+            string id_servicio = coleccion["id_producto"];
+            var servicio_ofertado = base_datos.ServicioOfrecidos.FirstOrDefault(u => u.IdServicio == id_servicio);
+            var servicio_ofertado_2 = base_datos.OfertaServicios.FirstOrDefault(u => u.IdServicio == id_servicio);
+
+            base_datos.OfertaServicios.Remove(servicio_ofertado_2);
+            base_datos.ServicioOfrecidos.Remove(servicio_ofertado);
+            base_datos.SaveChanges();
+            return RedirectToAction("ListarServicios");
+        }
     }
 }
