@@ -757,6 +757,14 @@ button {
   margin-left: 0.75rem;
 }
 
+.blanco-enlace {
+  color:#fff;
+}
+
+.blanco-enlace:hover {
+  color:#8dfcf6;
+}
+
 /** end footer **/
 
 /** Para el inicio de sesión **/
