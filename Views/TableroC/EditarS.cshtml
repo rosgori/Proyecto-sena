@@ -1,0 +1,46 @@
+@{
+    ViewData["Title"] = "TableroC";
+    Layout = "~/Views/Shared/_Layout-04.cshtml";
+}
+
+<h2 class="my-3">Editar servicio</h2>
+
+<div class="card col-7">
+    <div class="card-header card-title">
+        Formulario
+    </div>
+
+    <div class="card-body">
+        <div class="card-text">
+            Edite cualquier campo
+        </div>
+        <form method="POST" asp-action="EditarServicio">
+
+            <input type="hidden" id="id-servicio" name="id-servicio" value="@ViewBag.servicio.IdServicio">
+
+            <div class="my-3">
+                <label for="nombre_servicio" class="form-label">Nombre del servicio</label>
+                <input for="nombre_servicio" type="text" class="form-control" name="nombre_servicio"
+                    value="@ViewBag.servicio.NombreServicio" required>
+            </div>
+            <div class="my-3">
+                <label for="precio_servicio" class="form-label">Precio del servicio</label>
+                <input for="precio_servicio" type="text" class="form-control" name="precio_servicio"
+                    value="@ViewBag.servicio.PrecioServicio" required>
+            </div>
+
+            <div class="my-3">
+                <label for="descripcion-servicio" class="form-label">Descripción del servicio (máximo 1000
+                    palabras)</label>
+                <textarea for="descripcion-servicio" class="form-control" type="text" name="descripcion-servicio"
+                    style="height: 100px" required> @ViewBag.servicio.Descripcion
+                </textarea>
+            </div>
+
+            <div class="my-5">
+                <input class="btn btn-primary" type="submit" value="Editar">
+            </div>
+
+        </form>
+    </div>
+</div>

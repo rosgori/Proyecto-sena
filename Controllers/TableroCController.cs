@@ -195,5 +195,36 @@ namespace Proyecto_sena.Controllers
 
             return RedirectToAction("MostrarDatos");
         }
+
+        [Authorize]
+        [HttpPost]
+        public IActionResult EditarS(IFormCollection coleccion)
+        {
+            string id_producto = coleccion["id_producto"];
+            var servicio_ofertado = base_datos.ServicioOfrecidos.FirstOrDefault(u => u.IdServicio == id_producto);
+
+            ViewBag.servicio = servicio_ofertado;
+            return View();
+        }
+
+        [Authorize]
+        [HttpPost]
+        public IActionResult EditarServicio(IFormCollection coleccion)
+        {
+            string id_servicio = coleccion["id-servicio"];
+            string nombre = coleccion["nombre_servicio"];
+            string precio = coleccion["precio_servicio"];
+            string descripcion = coleccion["descripcion-servicio"];
+
+            var servicio_ofertado = base_datos.ServicioOfrecidos.FirstOrDefault(u => u.IdServicio == id_servicio);
+
+            servicio_ofertado.NombreServicio = nombre.Trim();
+            servicio_ofertado.PrecioServicio = Convert.ToUInt32(precio.Trim());
+            servicio_ofertado.Descripcion = descripcion.Trim();
+
+            base_datos.SaveChanges();
+
+            return RedirectToAction("ListarServicios");
+        }
     }
 }

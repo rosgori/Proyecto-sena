@@ -27,13 +27,18 @@
                         <td> @ViewBag.lista[i + 1]</td>
                         <td> @ViewBag.lista[i +2]</td>
                         <td>
-                            <button type="button" class="btn btn-secondary mx-3" data-id=@ViewBag.lista[i]
-                            data-bs-toggle="button" autocomplete="off">
-                                Editar</button>
-
-                            <button type="button" class="btn btn-warning mx-3" data-id=@ViewBag.lista[i] data-bs-toggle="button"
-                            autocomplete="off">
-                                Eliminar</button>
+                            <div class="row">
+                                <div class="col-3">
+                                    <form asp-controller="TableroC" asp-action="EditarS" method="post">
+                                        <button role="button" class="btn btn-secondary mx-3"
+                                    value=@ViewBag.lista[i] name="id_producto"> Editar</button>
+                                    </form>
+                                </div>
+                                <div class="col-3">
+                                    <button type="button" class="btn btn-warning mx-3" data-id=@ViewBag.lista[i]>
+                                        Eliminar</button>
+                                </div>
+                            </div>
 
                         </td>
                     </tr>

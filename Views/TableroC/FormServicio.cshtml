@@ -3,46 +3,40 @@
     Layout = "~/Views/Shared/_Layout-04.cshtml";
 }
 
-<section id="dashboard">
-    <article class="menu">
-        <ul>
-            <li class="item"><a href="">Compañías</a></li>
-            <li class="item"><a asp-controller="TableroC" asp-action="Buscar">Búsqueda</a></li>
-            <li class="item"><a asp-controller="TableroC" asp-action="MostrarDatos">Mostrar datos</a></li>
-            <li class="item"><a asp-controller="TableroC" asp-action="Editar">Editar</a></li>
-            <li class="item"><a asp-controller="TableroC" asp-action="ListarServicios">Servicios</a></li>
-            <li class="item"><a href="">Usuarios</a></li>
-        </ul>
-    </article>
-    <article class="contenido">
-        Para agregar un servicios
-        <br>
-        <br>
+<h2 class="my-3">Agregar servicio</h2>
+
+<div class="card col-7">
+    <div class="card-header card-title">
+        Formulario
+    </div>
+
+    <div class="card-body">
+        <div class="card-text">
+            Agregue un servicio y añada una pequeña descripción del servicio
+        </div>
         <form method="POST" asp-action="AgregarServicio">
 
-            <input type="hidden" id="id-servicio" name="id-servicio"/>
-            <div>
-                <label for="nombre_servicio">Nombre del servicio</label>
-                <input for="nombre_servicio" type="text" name="nombre_servicio" required />
+            <input type="hidden" id="id-servicio" name="id-servicio" />
+            <div class="my-3">
+                <label for="nombre_servicio" class="form-label">Nombre del servicio</label>
+                <input for="nombre_servicio" type="text" class="form-control" name="nombre_servicio" required>
             </div>
-            <div>
-                <label for="precio_servicio">Precio del servicio</label>
-                <input for="precio_servicio" type="text" name="precio_servicio" required />
+            <div class="my-3">
+                <label for="precio_servicio" class="form-label">Precio del servicio</label>
+                <input for="precio_servicio" type="text" class="form-control" name="precio_servicio" required>
             </div>
 
-            <div>
-                <label for="descripcion-servicio">Descripción del servicio</label>
-                <br>
-                <textarea for="descripcion-servicio" type="text" name="descripcion-servicio" 
-                row="5" cols="20" required >
+            <div class="my-3">
+                <label for="descripcion-servicio" class="form-label">Descripción del servicio (máximo 1000 palabras)</label>
+                <textarea for="descripcion-servicio" class="form-control" type="text" name="descripcion-servicio"
+                    style="height: 100px" required>
                 </textarea>
             </div>
 
-            <div>
+            <div class="my-5">
                 <input class="btn btn-primary" type="submit" value="Agregar">
             </div>
 
         </form>
-
-    </article>
-</section>
+    </div>
+</div>
