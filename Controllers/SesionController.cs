@@ -47,7 +47,7 @@ namespace Proyecto_sena.Controllers
                 solicitudes.Add(new Claim("correo", correo));
                 solicitudes.Add(new Claim(ClaimTypes.Email, correo));
                 solicitudes.Add(new Claim(ClaimTypes.Name, correo));
-                // solicitudes.Add(new Claim(ClaimTypes.Role, usuarioLogueado.Rol));
+                solicitudes.Add(new Claim(ClaimTypes.Role, "1"));
                 var solicitud_identidad = new ClaimsIdentity(solicitudes, CookieAuthenticationDefaults.AuthenticationScheme);
                 var solicitud_principal = new ClaimsPrincipal(solicitud_identidad);
                 await HttpContext.SignInAsync(solicitud_principal);
@@ -63,7 +63,7 @@ namespace Proyecto_sena.Controllers
                 solicitudes.Add(new Claim("correo", correo));
                 solicitudes.Add(new Claim(ClaimTypes.Email, correo));
                 solicitudes.Add(new Claim(ClaimTypes.Name, correo));
-                // solicitudes.Add(new Claim(ClaimTypes.Role, usuarioLogueado.Rol));
+                solicitudes.Add(new Claim(ClaimTypes.Role, "2"));
                 var solicitud_identidad = new ClaimsIdentity(solicitudes, CookieAuthenticationDefaults.AuthenticationScheme);
                 var solicitud_principal = new ClaimsPrincipal(solicitud_identidad);
                 await HttpContext.SignInAsync(solicitud_principal);
@@ -79,7 +79,7 @@ namespace Proyecto_sena.Controllers
                 solicitudes.Add(new Claim("correo", correo));
                 solicitudes.Add(new Claim(ClaimTypes.Email, correo));
                 solicitudes.Add(new Claim(ClaimTypes.Name, correo));
-                // solicitudes.Add(new Claim(ClaimTypes.Role, usuarioLogueado.Rol));
+                solicitudes.Add(new Claim(ClaimTypes.Role, "3"));
                 var solicitud_identidad = new ClaimsIdentity(solicitudes, CookieAuthenticationDefaults.AuthenticationScheme);
                 var solicitud_principal = new ClaimsPrincipal(solicitud_identidad);
                 await HttpContext.SignInAsync(solicitud_principal);

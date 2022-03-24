@@ -23,13 +23,13 @@ namespace Proyecto_sena.Controllers
             _logger = logger;
         }
 
-        [Authorize]
+        [Authorize(Roles="3")]
         public IActionResult Index()
         {
             return View();
         }
 
-        [Authorize]
+        [Authorize(Roles="3")]
         public IActionResult MostrarDatos()
         {
             var correo = User.Identity.Name;
@@ -39,7 +39,7 @@ namespace Proyecto_sena.Controllers
             return View();
         }
 
-        [Authorize]
+        [Authorize(Roles="3")]
         public IActionResult Editar()
         {
             var correo = User.Identity.Name;
@@ -49,7 +49,7 @@ namespace Proyecto_sena.Controllers
             return View();
         }
 
-        [Authorize]
+        [Authorize(Roles="3")]
         public IActionResult EditarCompañia(IFormCollection formCollection)
         {
             string nombre = formCollection["nombre"];
@@ -91,7 +91,7 @@ namespace Proyecto_sena.Controllers
             return RedirectToAction("Index");
         }
 
-        [Authorize]
+        [Authorize(Roles="3")]
         public IActionResult ListarServicios()
         {
             var correo = User.Identity.Name;
@@ -116,13 +116,13 @@ namespace Proyecto_sena.Controllers
             return View();
         }
 
-        [Authorize]
+        [Authorize(Roles="3")]
         public IActionResult FormServicio()
         {
             return View();
         }
 
-        [Authorize]
+        [Authorize(Roles="3")]
         public IActionResult AgregarServicio(IFormCollection formCollection)
         {
             string id_servicio = formCollection["id-servicio"];
@@ -166,13 +166,13 @@ namespace Proyecto_sena.Controllers
 
         }
 
-        [Authorize]
+        [Authorize(Roles="3")]
         public IActionResult Contrasena()
         {
             return View();
         }
 
-        [Authorize]
+        [Authorize(Roles="3")]
         [HttpPost]
         public IActionResult EditarContraseña(IFormCollection formCollection)
         {
@@ -196,7 +196,7 @@ namespace Proyecto_sena.Controllers
             return RedirectToAction("MostrarDatos");
         }
 
-        [Authorize]
+        [Authorize(Roles="3")]
         [HttpPost]
         public IActionResult EditarS(IFormCollection coleccion)
         {
@@ -207,7 +207,7 @@ namespace Proyecto_sena.Controllers
             return View();
         }
 
-        [Authorize]
+        [Authorize(Roles="3")]
         [HttpPost]
         public IActionResult EditarServicio(IFormCollection coleccion)
         {
@@ -227,7 +227,7 @@ namespace Proyecto_sena.Controllers
             return RedirectToAction("ListarServicios");
         }
 
-        [Authorize]
+        [Authorize(Roles="3")]
         [HttpPost]
         public IActionResult EliminarServicio(IFormCollection coleccion)
         {

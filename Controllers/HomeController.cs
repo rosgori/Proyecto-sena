@@ -28,6 +28,21 @@ namespace Proyecto_sena.Controllers
             return View();
         }
 
+        public IActionResult IrTablero()
+        {
+            if (User.IsInRole("1")) {
+                return RedirectToAction("Index", "Tablero");
+            }
+            if (User.IsInRole("2")) {
+                return RedirectToAction("Index", "TableroCM");
+            }
+            if (User.IsInRole("3")) {
+                return RedirectToAction("Index", "TableroC");
+            }
+
+            return Index();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

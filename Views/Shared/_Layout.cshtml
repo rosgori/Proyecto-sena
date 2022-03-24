@@ -83,7 +83,7 @@
                                     @if (User.Identity.IsAuthenticated)
                                     {
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Tablero</a>
+                                            <a class="nav-link" asp-controller="Home" asp-action="IrTablero">Tablero</a>
                                         </li>
                                         <li class="nav-item active">
                                             <a class="nav-link" asp-controller="Sesion" asp-action="SalirSesion">Cerrar
