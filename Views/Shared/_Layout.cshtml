@@ -19,24 +19,6 @@
 
 <body class="main-layout">
     <header>
-        @* <nav>
-            @if (!User.Identity.IsAuthenticated)
-            {
-            <div class="opciones">
-            <a class="color1" asp-controller="Registro" asp-action="Index">Registrarse</a>
-            <a class="color2" asp-controller="Sesion" asp-action="Index">Iniciar sesión</a>
-            </div>
-            }
-
-            @if (User.Identity.IsAuthenticated)
-            {
-            <div class="opciones">
-            <a class="color1"> Hola @User.Identity.Name</a>
-            <a class="color2" asp-controller="Sesion" asp-action="SalirSesion">Cerrar sesión</a>
-            </div>
-            }
-            </nav>
-        *@
         <div class="header">
             <div class="container">
                 <div class="row">
@@ -44,7 +26,7 @@
                         <div class="full">
                             <div class="center-desk">
                                 <div class="logo">
-                                    <a href="index.html"><img src="~/img/logo-trans-horizontal_1.png" alt="#" /></a>
+                                    <a asp-controller="Home" asp-action="Index"><img src="~/img/logo-trans-horizontal_1.png" alt="#" /></a>
                                 </div>
                             </div>
                         </div>
@@ -59,19 +41,19 @@
                             <div class="collapse navbar-collapse" id="navbarsExample04">
                                 <ul class="navbar-nav mr-auto">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#">Inicio</a>
+                                        <a class="nav-link" asp-controller="Home" asp-action="Index">Inicio</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#"> Innube </a>
+                                        <a class="nav-link" href="#innube-descripcion"> Innube </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#service"> Módulos</a>
+                                        <a class="nav-link" href="#modulos"> Módulos</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#contact">Ventajas</a>
+                                        <a class="nav-link" href="#ventajas">Ventajas</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#">Contáctenos</a>
+                                        <a class="nav-link" href="#contacto">Contáctenos</a>
                                     </li>
                                     @if (!User.Identity.IsAuthenticated)
                                     {
