@@ -14,9 +14,7 @@
                     <th class="id_producto">Id producto</th>
                     <th>Nombre</th>
                     <th>Precio</th>
-
                     <th></th>
-
                 </tr>
             </thead>
             <tbody>
@@ -26,18 +24,14 @@
                         <td class="id_producto"> @ViewBag.lista[i]</td>
                         <td> @ViewBag.lista[i + 1]</td>
                         <td> @ViewBag.lista[i +2]</td>
-
-                        <td>
-
-                        </td>
+                        <td></td>
                     </tr>
                 }
             </tbody>
 
-        </table> 
-        <a id="envio-boton" asp-controller="Tablero" asp-action="MostrarServicios"
-            class="btn btn-primary">Enviar
-            algo</a>
+        </table>
+        @* <a id="envio-boton" asp-controller="Tablero" asp-action="MostrarServicios" class="btn btn-primary">Enviar
+            algo</a> *@
 
     </div>
 </div>
