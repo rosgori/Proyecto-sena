@@ -24,13 +24,13 @@ namespace Proyecto_sena.Controllers
             _logger = logger;
         }
 
-        [Authorize(Roles="2")]
+        [Authorize(Roles = "2")]
         public IActionResult Index()
         {
             return View();
         }
 
-        [Authorize(Roles="2")]
+        [Authorize(Roles = "2")]
         public IActionResult MostrarDatos()
         {
             var correo = User.Identity.Name;
@@ -40,7 +40,7 @@ namespace Proyecto_sena.Controllers
             return View();
         }
 
-        [Authorize(Roles="2")]
+        [Authorize(Roles = "2")]
         public IActionResult Editar()
         {
             var correo = User.Identity.Name;
@@ -50,7 +50,7 @@ namespace Proyecto_sena.Controllers
             return View();
         }
 
-        [Authorize(Roles="2")]
+        [Authorize(Roles = "2")]
         [HttpPost]
         public IActionResult EditarCompañia(IFormCollection formCollection)
         {
@@ -93,13 +93,13 @@ namespace Proyecto_sena.Controllers
             return RedirectToAction("Index");
         }
 
-        [Authorize(Roles="2")]
+        [Authorize(Roles = "2")]
         public IActionResult Contrasena()
         {
             return View();
         }
 
-        [Authorize(Roles="2")]
+        [Authorize(Roles = "2")]
         [HttpPost]
         public IActionResult EditarContraseña(IFormCollection formCollection)
         {
@@ -123,7 +123,7 @@ namespace Proyecto_sena.Controllers
             return RedirectToAction("MostrarDatos");
         }
 
-        [Authorize(Roles="2")]
+        [Authorize(Roles = "2")]
         public IActionResult Buscar()
         {
             List<String> lista_datos = new List<string>();
@@ -145,7 +145,7 @@ namespace Proyecto_sena.Controllers
             return View();
         }
 
-        [Authorize(Roles="2")]
+        [Authorize(Roles = "2")]
         public IActionResult CogerDatos([FromBody] JsonDocument values)
         {
             List<string> listas_ids = new List<string>();
@@ -165,7 +165,7 @@ namespace Proyecto_sena.Controllers
             return RedirectToAction("MostrarServicios", new { ll = listas_ids });
         }
 
-        [Authorize(Roles="2")]
+        [Authorize(Roles = "2")]
         [HttpGet]
         // public IActionResult MostrarServicios([FromBody] JsonDocument values)
         public IActionResult MostrarServicios(List<string> ll)
@@ -179,9 +179,15 @@ namespace Proyecto_sena.Controllers
             foreach (var item in ids)
             {
                 var servicio = base_datos.ServicioOfrecidos.FirstOrDefault(u => u.IdServicio.Equals(item));
+                var temp1 = base_datos.OfertaServicios.FirstOrDefault(u => u.IdServicio == servicio.IdServicio);
+                var compañia = base_datos.Compañia.FirstOrDefault(u => u.IdCompañia == temp1.IdCompañia);
+
                 lista_datos.Add(servicio.IdServicio);
                 lista_datos.Add(servicio.NombreServicio);
                 lista_datos.Add(servicio.PrecioServicio.ToString());
+                lista_datos.Add(compañia.NombreCompañia);
+                lista_datos.Add(compañia.CorreoElectronicoCompañia);
+                lista_datos.Add(compañia.TelefonoCompañia);
             }
 
             ViewBag.longitud = lista_datos.Count();
