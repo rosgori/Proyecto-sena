@@ -132,6 +132,7 @@ namespace Proyecto_sena.Controllers
         public IActionResult MostrarServicios(List<string> ll)
         {
             List<String> lista_datos = new List<string>();
+            List<String> lista_compañias = new List<string>();
             // var ids = CogerDatos(values);
             var ids = ll;
 
@@ -140,13 +141,20 @@ namespace Proyecto_sena.Controllers
             foreach (var item in ids)
             {
                 var servicio = base_datos.ServicioOfrecidos.FirstOrDefault(u => u.IdServicio.Equals(item));
+                var temp1 = base_datos.OfertaServicios.FirstOrDefault(u => u.IdServicio == servicio.IdServicio);
+                var compañia = base_datos.Compañia.FirstOrDefault(u => u.IdCompañia == temp1.IdCompañia);
+            
                 lista_datos.Add(servicio.IdServicio);
                 lista_datos.Add(servicio.NombreServicio);
                 lista_datos.Add(servicio.PrecioServicio.ToString());
+                lista_compañias.Add(compañia.NombreCompañia);
+                lista_compañias.Add(compañia.CorreoElectronicoCompañia);
+                lista_compañias.Add(compañia.TelefonoCompañia);
             }
 
             ViewBag.longitud = lista_datos.Count();
             ViewBag.lista = lista_datos;
+            ViewBag.lista_compañias = lista_compañias;
 
             return View();
         }

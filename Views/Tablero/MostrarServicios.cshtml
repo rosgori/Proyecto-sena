@@ -3,11 +3,17 @@
     Layout = "~/Views/Shared/_Layout-02.cshtml";
 }
 
+<h2>Resultado</h2>
+
 <div class="card flex-fill w-100">
     <div class="card-header">
-        <h2 class="card-title mb-0">Servicios</h2>
+        <h2 class="card-title mb-0">Servicios ofrecidos</h2>
     </div>
     <div class="card-body">
+        <p class="card-text">
+            Aquí se muestran los servicios que usted escogió. Para saber más sobre la empresa que ofrece ese
+            servicio, haga click en el botón de la derecha.
+        </p>
         <table id="mitabla" class="table">
             <thead>
                 <tr>
@@ -24,7 +30,34 @@
                         <td class="id_producto"> @ViewBag.lista[i]</td>
                         <td> @ViewBag.lista[i + 1]</td>
                         <td> @ViewBag.lista[i +2]</td>
-                        <td></td>
+                        <td>
+                            <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#staticBackdrop">
+                                Más info
+                            </button>
+
+                            <!-- Modal -->
+                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                            tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title" id="staticBackdropLabel"><strong>Información sobre la empresa</strong></h4>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            ...
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Cerrar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
                     </tr>
                 }
             </tbody>
