@@ -147,14 +147,14 @@ namespace Proyecto_sena.Controllers
                 lista_datos.Add(servicio.IdServicio);
                 lista_datos.Add(servicio.NombreServicio);
                 lista_datos.Add(servicio.PrecioServicio.ToString());
-                lista_compañias.Add(compañia.NombreCompañia);
-                lista_compañias.Add(compañia.CorreoElectronicoCompañia);
-                lista_compañias.Add(compañia.TelefonoCompañia);
+                lista_datos.Add(compañia.NombreCompañia);
+                lista_datos.Add(compañia.CorreoElectronicoCompañia);
+                lista_datos.Add(compañia.TelefonoCompañia);
             }
 
-            ViewBag.longitud = lista_datos.Count();
             ViewBag.lista = lista_datos;
-            ViewBag.lista_compañias = lista_compañias;
+            // ViewBag.lista_compañias = lista_compañias;
+            ViewBag.longitud = lista_datos.Count();
 
             return View();
         }
