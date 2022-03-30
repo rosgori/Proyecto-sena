@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.27, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.28, for Linux (x86_64)
 --
 -- Host: 127.0.0.1    Database: proyecto_innube
 -- ------------------------------------------------------
--- Server version	8.0.27-0ubuntu0.20.04.1
+-- Server version	8.0.28-0ubuntu0.20.04.3
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -104,7 +104,7 @@ CREATE TABLE `Cliente_compañia` (
 
 LOCK TABLES `Cliente_compañia` WRITE;
 /*!40000 ALTER TABLE `Cliente_compañia` DISABLE KEYS */;
-INSERT INTO `Cliente_compañia` VALUES ('CM396479','Palomas S.A.S','23450','palomas@gmail.com','Calle 101',4,'45603-2',2,3),('CM9018424','Dados A.A.','345009','dados@gmail.com','Calle 101',5,'50009',1,1),('CM9280900','Juegos S.A','23456','juegosa@gmail.com','Calle 100',2,'3445-3',1,1);
+INSERT INTO `Cliente_compañia` VALUES ('CM1198519','Palomillas S.A.','31231','palomillas@gmail.com','Calle 101',6,'214810',1,1),('CM396479','Palomas S.A.S','23450','palomas@gmail.com','Calle 101',4,'45603-2',2,3),('CM9018424','Dados A.A.','345009','dados@gmail.com','Calle 101',5,'50009',1,1),('CM9280900','Juegos S.A','23456','juegosa@gmail.com','Calle 100',2,'3445-3',1,1);
 /*!40000 ALTER TABLE `Cliente_compañia` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -129,7 +129,7 @@ CREATE TABLE `Cliente_general` (
 
 LOCK TABLES `Cliente_general` WRITE;
 /*!40000 ALTER TABLE `Cliente_general` DISABLE KEYS */;
-INSERT INTO `Cliente_general` VALUES ('CC280580',1,0),('CC6085669',1,0),('CC6526100',1,0),('CC7488623',1,0),('CM2863643',0,1),('CM396479',0,1),('CM5755671',0,1),('CM8432523',0,1),('CM9018424',0,1),('CM9280900',0,1);
+INSERT INTO `Cliente_general` VALUES ('CC280580',1,0),('CC6085669',1,0),('CC6526100',1,0),('CC7488623',1,0),('CM1198519',0,1),('CM2863643',0,1),('CM396479',0,1),('CM5755671',0,1),('CM8432523',0,1),('CM9018424',0,1),('CM9280900',0,1);
 /*!40000 ALTER TABLE `Cliente_general` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -168,7 +168,7 @@ CREATE TABLE `Compañia` (
 
 LOCK TABLES `Compañia` WRITE;
 /*!40000 ALTER TABLE `Compañia` DISABLE KEYS */;
-INSERT INTO `Compañia` VALUES ('CM2863643','Ofertitas S.A.','44560','ofertitas@gmail.com','Calle 109',3,'3405-5',1,1),('CM5755671','Dados LTDA','345609','dados@gmail.com','Calle 102',1,'445-65',3,3),('CM8432523','Piezas LTDA','34569','piezas@gmail.com','Calle 97',2,'344-555',2,2);
+INSERT INTO `Compañia` VALUES ('CM2863643','Ofertitas S.A.','44560','ofertitas@gmail.com','Calle 109',3,'3405-6',1,1),('CM5755671','Dados LTDA','345609','dados@gmail.com','Calle 102',1,'445-65',3,3),('CM8432523','Piezas LTDA','34569','piezas@gmail.com','Calle 97',2,'344-555',2,2);
 /*!40000 ALTER TABLE `Compañia` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -184,7 +184,7 @@ CREATE TABLE `Contraseña_cliente` (
   `salt` varchar(20) NOT NULL,
   `parte_encriptada` varchar(150) NOT NULL,
   PRIMARY KEY (`id_contraseña_cliente`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -193,7 +193,7 @@ CREATE TABLE `Contraseña_cliente` (
 
 LOCK TABLES `Contraseña_cliente` WRITE;
 /*!40000 ALTER TABLE `Contraseña_cliente` DISABLE KEYS */;
-INSERT INTO `Contraseña_cliente` VALUES (1,'YWxnb19sYXJnbw==','YWxv'),(2,'QVlFUlE0UDY3Ug==','bWlyYWxh'),(3,'0OA3YRJGGH','wo8qRfuu9ptFq0qYVLajxTnSiCh0xuVgLWf77/F2eic='),(4,'DBYFK10ZG7','2vSd0OciXPjgbN1urhDixzZmkJTmhy3gRX/2zsrOLLM='),(5,'LMA6UGJ6WU','udVt1Zj17DZYCRWSdEbkCAqV0l1saU7bMnkPxlhE9P8='),(6,'POPPBZ1JFU','QUY8aEY4qdsrOExolJTx78mr6Qs1gD4x6Arw8R1N7OY='),(7,'G0YYVGYX7I','v68ylmM0EYN8vtdNzRJJbrV1/RBeyIaJytccaUFhIfE='),(8,'L9YE1N43YR','ZdZukKpSooeuaHRfWsveb7l68PHZH9yTFTZqNVXZzzI='),(9,'6WP3FHSFBJ','QDjNl688l2gW2tJFBkk0j3nSsFvlt241xz8TkiIAaZU='),(10,'W9PY5YOJW5','UNbz/KfVR10SzHZKwddfU8lc/owHVTh8Vg1kmz3zRJ4='),(11,'7HBF7UY3IO','3MSP/0CnTDMcbjoXxNrXVDOB075dILfOUk3Mic8KYOY='),(12,'PSFL6IAR6D','QrpEwKWJIoNAvi3/KxRLqAPuVUoyOgrg+UPek1CwKNY=');
+INSERT INTO `Contraseña_cliente` VALUES (1,'YWxnb19sYXJnbw==','YWxv'),(2,'QVlFUlE0UDY3Ug==','bWlyYWxh'),(3,'0OA3YRJGGH','wo8qRfuu9ptFq0qYVLajxTnSiCh0xuVgLWf77/F2eic='),(4,'DBYFK10ZG7','2vSd0OciXPjgbN1urhDixzZmkJTmhy3gRX/2zsrOLLM='),(5,'LMA6UGJ6WU','udVt1Zj17DZYCRWSdEbkCAqV0l1saU7bMnkPxlhE9P8='),(6,'POPPBZ1JFU','QUY8aEY4qdsrOExolJTx78mr6Qs1gD4x6Arw8R1N7OY='),(7,'G0YYVGYX7I','v68ylmM0EYN8vtdNzRJJbrV1/RBeyIaJytccaUFhIfE='),(8,'L9YE1N43YR','ZdZukKpSooeuaHRfWsveb7l68PHZH9yTFTZqNVXZzzI='),(9,'6WP3FHSFBJ','QDjNl688l2gW2tJFBkk0j3nSsFvlt241xz8TkiIAaZU='),(10,'W9PY5YOJW5','UNbz/KfVR10SzHZKwddfU8lc/owHVTh8Vg1kmz3zRJ4='),(11,'7HBF7UY3IO','3MSP/0CnTDMcbjoXxNrXVDOB075dILfOUk3Mic8KYOY='),(12,'KM39XBSOYV','W7KU1l+/lr8BVoKqqVlV+dwRh54r1XBJPjrMOvjQduE='),(13,'GDHHW9OK0A','twynkb7g2crqLU6L1e+FDlKWadq4/kBsnVCjLQtE99w='),(14,'XYL8WBS0X7','W0LIvIkFjNpKN8JBNvGmLBndGos5DXgAxw2/5DvGyqY=');
 /*!40000 ALTER TABLE `Contraseña_cliente` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -209,7 +209,7 @@ CREATE TABLE `Contraseña_cliente_compañia` (
   `salt` varchar(20) NOT NULL,
   `parte_encriptada` varchar(150) NOT NULL,
   PRIMARY KEY (`id_contraseña_compañia`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -218,7 +218,7 @@ CREATE TABLE `Contraseña_cliente_compañia` (
 
 LOCK TABLES `Contraseña_cliente_compañia` WRITE;
 /*!40000 ALTER TABLE `Contraseña_cliente_compañia` DISABLE KEYS */;
-INSERT INTO `Contraseña_cliente_compañia` VALUES (1,'13Z4D1SC8R','4SZ/qrvlrPc0T55k3GV6m71sTdyJxq6fqSLrosSAM2I='),(2,'QYE5PWQ7H0','SApeNIUwDQh6kRgsfPJQAGs09rce7iaxMjdesktfsdE='),(3,'C1JUKXJ0LT','nafWMRwD/LQB5/INZW3m/IXVyxCEsgu9Gxpx+D0x7Vo='),(4,'V9LYN7ERUF','6nf+60drLJhfsE3+sxidXsFex7v0BifBKZMpGA1WZP4='),(5,'8LJ25IDFJU','+5jvNtB0fqUhZdpxhN+owbvHK+sWg7zPf1cszrAe5uw=');
+INSERT INTO `Contraseña_cliente_compañia` VALUES (1,'13Z4D1SC8R','4SZ/qrvlrPc0T55k3GV6m71sTdyJxq6fqSLrosSAM2I='),(2,'QYE5PWQ7H0','SApeNIUwDQh6kRgsfPJQAGs09rce7iaxMjdesktfsdE='),(3,'C1JUKXJ0LT','nafWMRwD/LQB5/INZW3m/IXVyxCEsgu9Gxpx+D0x7Vo='),(4,'V9LYN7ERUF','6nf+60drLJhfsE3+sxidXsFex7v0BifBKZMpGA1WZP4='),(5,'8LJ25IDFJU','+5jvNtB0fqUhZdpxhN+owbvHK+sWg7zPf1cszrAe5uw='),(6,'HAL77S7RXH','iZh2JagkXL1y95Uc0kA4x+JJQt06iZ79fXj/NNrsfuI=');
 /*!40000 ALTER TABLE `Contraseña_cliente_compañia` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -243,7 +243,7 @@ CREATE TABLE `Contraseña_compañia` (
 
 LOCK TABLES `Contraseña_compañia` WRITE;
 /*!40000 ALTER TABLE `Contraseña_compañia` DISABLE KEYS */;
-INSERT INTO `Contraseña_compañia` VALUES (1,'R3NHTQVGTG','t+613SSgpleX5hAt64JgXecjS1MhMr5I3wcvkR5EgsA='),(2,'5I2M7Y7PGX','RTOPcuLugTa4MveBp8mpzucHCVQf/eZ+ll7xSXASsyY='),(3,'213HL6P059','M1MJIvXeqJ8AsdHPT7ES8LfSgLvqoCgKa9e6xqyg/Mc=');
+INSERT INTO `Contraseña_compañia` VALUES (1,'R3NHTQVGTG','t+613SSgpleX5hAt64JgXecjS1MhMr5I3wcvkR5EgsA='),(2,'5I2M7Y7PGX','RTOPcuLugTa4MveBp8mpzucHCVQf/eZ+ll7xSXASsyY='),(3,'UL6NOBWM9B','FLsLbe1e6SD2gnjMFgWnqC4W6s40vV98ghzNOlN8lhE=');
 /*!40000 ALTER TABLE `Contraseña_compañia` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -322,7 +322,7 @@ CREATE TABLE `Departamento_compañia` (
 
 LOCK TABLES `Departamento_compañia` WRITE;
 /*!40000 ALTER TABLE `Departamento_compañia` DISABLE KEYS */;
-INSERT INTO `Departamento_compañia` VALUES (1,'Antioquia'),(2,'Valle del Cauca'),(3,'Santander'),(4,'Barranquilla');
+INSERT INTO `Departamento_compañia` VALUES (1,'Bogotá'),(2,'Antioquia'),(3,'Valle del Cauca'),(4,'Atlántico');
 /*!40000 ALTER TABLE `Departamento_compañia` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -373,7 +373,7 @@ CREATE TABLE `Oferta_servicio` (
 
 LOCK TABLES `Oferta_servicio` WRITE;
 /*!40000 ALTER TABLE `Oferta_servicio` DISABLE KEYS */;
-INSERT INTO `Oferta_servicio` VALUES ('SO45834545','CM5755671'),('SO98987878','CM8432523');
+INSERT INTO `Oferta_servicio` VALUES ('SO23618060','CM2863643'),('SO34170361','CM2863643'),('SO42005257','CM2863643'),('SO45834545','CM5755671'),('SO98987878','CM8432523');
 /*!40000 ALTER TABLE `Oferta_servicio` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -443,7 +443,7 @@ DROP TABLE IF EXISTS `Servicio_ofrecido`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Servicio_ofrecido` (
   `id_servicio` varchar(12) NOT NULL,
-  `nombre_servicio` varchar(30) NOT NULL,
+  `nombre_servicio` varchar(100) NOT NULL,
   `precio_servicio` int unsigned NOT NULL,
   `descripcion` varchar(1000) NOT NULL,
   PRIMARY KEY (`id_servicio`)
@@ -456,7 +456,7 @@ CREATE TABLE `Servicio_ofrecido` (
 
 LOCK TABLES `Servicio_ofrecido` WRITE;
 /*!40000 ALTER TABLE `Servicio_ofrecido` DISABLE KEYS */;
-INSERT INTO `Servicio_ofrecido` VALUES ('SO45834545','Servicio 1',34500,'Es el primer servicios'),('SO98987878','Servicio 2',50000,'Es el segundo servicio');
+INSERT INTO `Servicio_ofrecido` VALUES ('SO23618060','Servicio 34',120000,'Este es un servicio muy caro'),('SO34170361','Servicio BBB',45000,'Un buen servicio al alcance de todos'),('SO42005257','Servicio 35',80000,'Otro servicio raro'),('SO45834545','Servicio 1',34500,'Es el primer servicios'),('SO95651268','Nopor',100000,'Disfrute infinito'),('SO98987878','Servicio 2',50000,'Es el segundo servicio');
 /*!40000 ALTER TABLE `Servicio_ofrecido` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -492,4 +492,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-11-26 14:08:20
+-- Dump completed on 2022-03-28 23:05:23
